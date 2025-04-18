@@ -1,0 +1,57 @@
+---
+permalink: configure/install-nfs-vaai-plug-in.html 
+sidebar: sidebar 
+keywords:  
+summary: 'VMware vSphere용 ONTAP 툴을 사용하여 VAAI\(NetApp NFS Plug-in for VMware vStorage APIs for Array Integration)를 설치할 수 있습니다.' 
+---
+= NFS VAAI 플러그인을 설치합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS VAAI(NFS vStorage API for Array Integration) 플러그인은 VMware vSphere와 NFS 스토리지 어레이를 통합하는 소프트웨어 구성 요소입니다. VMware vSphere용 ONTAP 툴을 사용하여 NFS VAAI 플러그인을 설치하면 NFS 스토리지 어레이의 고급 기능을 활용하여 특정 스토리지 관련 작업을 ESXi 호스트에서 스토리지 시스템으로 오프로드할 수 있습니다.
+
+.시작하기 전에
+*  https://mysupport.netapp.com/site/products/all/details/nfsplugin-vmware-vaai/downloads-tab["VMware VAAI용 NetApp NFS 플러그인"]설치 패키지를 다운로드합니다.
+* ESXi 호스트 7.0U3 최신 패치 이상 버전 및 ONTAP 9.14.1 이상 버전이 있는지 확인합니다.
+* NFS 데이터 저장소를 마운트합니다.
+* DataMover.HardwareAcceleratedMove, DataMover.HardwareAcceleratedInit 및 VMFS3.HardwareAcceleratedLocking 호스트 설정의 값을 "1"로 설정합니다. 이러한 값을 자동으로 설정하려면 EXSi 호스트의 권장 설정을 적용합니다. 을 link:../configure/configure-esx-server-multipath-and-timeout-settings.html["ESXi 서버 다중 경로 및 시간 초과 설정을 구성합니다"]참조하십시오.
+* vserver NFS modify -vserver_name -vStorage enable 명령을 사용하여 SVM(스토리지 가상 머신)에서 vStorage 옵션을 사용하도록 설정하십시오.
+* vSphere 7.0U3 최신 패치 릴리스가 있는지 확인합니다.
+* vSphere 8.x는 NetApp NFS VAAI 플러그인 2.0.1(빌드 16)에서 지원됩니다.
+
+
+.단계
+. vSphere Client에 로그인합니다
+. 플러그인 섹션에서 * 바로 가기 * > * NetApp ONTAP tools * 를 선택합니다.
+. Settings * > * NFS VAAI Tools * 를 선택합니다.
+. VAAI 플러그인이 vCenter Server에 업로드되면 * Existing version * 섹션에서 * Change * 를 선택합니다. VAAI 플러그인이 vCenter Server에 업로드되지 않은 경우 * 업로드 * 버튼을 선택합니다.
+. 파일을 찾아 선택하고 `.vib` * 업로드 * 를 선택하여 ONTAP 도구에 파일을 업로드합니다.
+. ESXi 호스트에 설치 * 를 선택하고 NFS VAAI 플러그인을 설치할 ESXi 호스트를 선택한 다음 * 설치 * 를 선택합니다.
++
+플러그인 설치에 적합한 ESXi 호스트만 표시됩니다. vSphere Web Client의 최근 작업 섹션에서 설치 진행률을 모니터링할 수 있습니다.
+
+. 설치가 완료된 후 ESXi 호스트를 수동으로 다시 시작해야 합니다.
++
+VMware 관리자가 ESXi 호스트를 다시 시작하면 VMware vSphere용 ONTAP 툴이 NFS VAAI 플러그인을 자동으로 감지하고 사용하도록 설정합니다.
+
+
+
+.다음 단계
+NFS VAAI 플러그인을 설치하고 ESXi 호스트를 재부팅한 후에는 VAAI 복사 오프로드에 대한 올바른 NFS 내보내기 정책을 구성해야 합니다. NFS 환경에서 VAAI를 구성할 때는 다음 요구 사항을 고려하여 내보내기 정책 규칙을 구성하십시오.
+
+* NFSv4 호출을 허용하려면 관련 ONTAP 볼륨이 필요합니다.
+* 루트 사용자는 루트로 유지되어야 하고 NFSv4는 모든 접합 상위 볼륨에서 허용되어야 합니다.
+* VAAI 지원 옵션은 관련 NFS 서버에서 설정해야 합니다.
+
+
+절차에 대한 자세한 내용은 https://kb.netapp.com/on-prem/ontap/DM/VAAI/VAAI-KBs/Configure_the_correct_NFS_export_policies_for_VAAI_copy_offload["VAAI 복사 오프로드에 대한 올바른 NFS 내보내기 정책을 구성합니다"] KB 문서 를 참조하십시오.
+
+.관련 정보
+https://docs.netapp.com/us-en/ontap/nfs-admin/support-vmware-vstorage-over-nfs-concept.html["VMware vStorage over NFS 지원"]
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/enable-disable-nfsv40-task.html["NFSv4.0을 사용하거나 사용하지 않도록 설정합니다"]
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/ontap-support-nfsv42-concept.html#nfs-v4-2-security-labels["NFSv4.2에 대한 ONTAP 지원"]

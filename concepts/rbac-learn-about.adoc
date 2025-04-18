@@ -1,0 +1,52 @@
+---
+permalink: concepts/rbac-learn-about.html 
+sidebar: sidebar 
+keywords: role based access control, rbac, rbac components, learn about rbac 
+summary: '역할 기반 액세스 제어(RBAC)는 조직 내 리소스에 대한 액세스를 제어하기 위한 보안 프레임워크입니다. RBAC는 개별 사용자에게 권한을 할당하는 대신 특정 수준의 권한을 사용하여 역할을 정의하여 관리를 단순화합니다. 정의된 역할이 사용자에게 할당되므로 오류 위험을 줄이고 조직 전체에서 액세스 제어 관리를 간소화할 수 있습니다.' 
+---
+= VMware vSphere 10 RBAC용 ONTAP 툴에 대해 알아보십시오
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+역할 기반 액세스 제어(RBAC)는 조직 내 리소스에 대한 액세스를 제어하기 위한 보안 프레임워크입니다. RBAC는 개별 사용자에게 권한을 할당하는 대신 특정 수준의 권한을 사용하여 역할을 정의하여 관리를 단순화합니다. 정의된 역할이 사용자에게 할당되므로 오류 위험을 줄이고 조직 전체에서 액세스 제어 관리를 간소화할 수 있습니다.
+
+RBAC 표준 모델은 여러 구현 기술 또는 복잡성 증가의 단계로 구성됩니다. 그 결과, 소프트웨어 공급업체와 고객의 요구사항에 따라 실제 RBAC 구축이 비교적 단순 배포에서 매우 복잡한 배포까지 그 범위가 다를 수 있습니다.
+
+
+
+== RBAC 구성 요소
+
+개략적으로 보면 모든 RBAC 구현에 일반적으로 포함되는 여러 가지 구성 요소가 있습니다. 이러한 구성 요소는 권한 부여 프로세스를 정의하는 과정에서 서로 다른 방식으로 바인딩됩니다.
+
+.권한
+_privilege_는 허용하거나 거부할 수 있는 작업 또는 기능입니다. 파일을 읽는 기능과 같은 간단한 작업일 수도 있고 특정 소프트웨어 시스템에 특정한 추상적인 작업일 수도 있습니다. REST API 엔드포인트 및 CLI 명령에 대한 액세스를 제한하도록 Privileges를 정의할 수도 있습니다. 모든 RBAC 구현에는 사전 정의된 Privileges가 포함되며 관리자가 사용자 지정 Privileges을 생성할 수도 있습니다.
+
+.역할
+역할 _ 은(는) 하나 이상의 Privileges을 포함하는 컨테이너입니다. 역할은 일반적으로 특정 작업 또는 직무에 따라 정의됩니다. 사용자에게 역할이 할당되면 역할에 포함된 모든 Privileges가 사용자에게 부여됩니다. 또한 Privileges와 마찬가지로 구현에는 사전 정의된 역할이 포함되며 일반적으로 사용자 지정 역할을 생성할 수 있습니다.
+
+.오브젝트
+_object_는 RBAC 환경 내에서 식별된 실제 또는 추상 리소스를 나타냅니다. Privileges를 통해 정의된 작업은 연결된 객체에서 또는 관련 객체에서 수행됩니다. 구현에 따라 Privileges 를 개체 형식 또는 특정 개체 인스턴스에 부여할 수 있습니다.
+
+.사용자 및 그룹
+_Users_는 인증 후 적용된 역할에 할당되거나 연결됩니다. 일부 RBAC 구현에서는 한 번에 하나의 역할만 사용자에게 할당할 수 있는 반면, 한 번에 하나의 역할만 활성 상태일 수 있는 역할도 있습니다. 역할을 _groups_에 할당하면 보안 관리를 더욱 간소화할 수 있습니다.
+
+.권한
+permission_은 사용자 또는 그룹과 역할을 객체에 바인딩하는 정의입니다. 사용 권한은 계층 구조에서 하위 개체가 선택적으로 상속할 수 있는 계층적 개체 모델에 유용할 수 있습니다.
+
+
+
+== 2개의 RBAC 환경
+
+VMware vSphere 10용 ONTAP 툴을 사용할 때는 두 가지 별개의 RBAC 환경을 고려해야 합니다.
+
+.VMware vCenter Server 를 참조하십시오
+VMware vCenter Server의 RBAC 구현은 vSphere Client 사용자 인터페이스를 통해 노출된 객체에 대한 액세스를 제한하는 데 사용됩니다. VMware vSphere 10용 ONTAP 툴을 설치할 때 RBAC 환경이 확장되어 ONTAP 툴의 기능을 나타내는 추가 개체가 포함됩니다. 이러한 객체에 대한 액세스는 원격 플러그인을 통해 제공됩니다. 자세한  내용은 을 참조하십시오.link:../concepts/rbac-vcenter-environment.html["vCenter Server RBAC 환경"]
+
+.ONTAP 클러스터
+VMware vSphere 10용 ONTAP 툴은 ONTAP REST API를 통해 ONTAP 클러스터에 연결하여 스토리지 관련 작업을 수행합니다. 스토리지 리소스에 대한 액세스는 인증 중에 제공된 ONTAP 사용자와 연결된 ONTAP 역할을 통해 제어됩니다. 자세한 내용은 을 link:../concepts/rbac-ontap-environment.html["ONTAP RBAC 환경"] 참조하십시오.

@@ -1,0 +1,164 @@
+---
+permalink: concepts/ontap-tools-concepts-terms.html 
+sidebar: sidebar 
+keywords:  
+summary: 다음 섹션에서는 이 문서에 사용된 핵심 개념과 용어에 대해 설명합니다. 
+---
+= 주요 개념 및 용어
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+다음 섹션에서는 이 문서에 사용된 핵심 개념과 용어에 대해 설명합니다.
+
+
+
+=== ASA r2 시스템
+
+새로운 NetApp ASA R2 시스템은 통합 하드웨어 및 소프트웨어 솔루션을 제공하여 SAN 전용 고객의 요구 사항에 맞는 간소화된 환경을 제공합니다. https://docs.netapp.com/us-en/asa-r2/get-started/learn-about.html["ASA R2 스토리지 시스템에 대해 알아보십시오"]..
+
+
+
+=== CA(인증 기관)
+
+CA는 SSL(Secure Sockets Layer) 인증서를 발급하는 신뢰할 수 있는 엔터티입니다.
+
+
+
+=== 일관성 그룹
+
+정합성 보장 그룹은 단일 유닛으로 관리되는 볼륨의 모음입니다. ONTAP에서 일관성 그룹을 사용하면 여러 볼륨에 걸쳐 있는 애플리케이션 워크로드를 손쉽게 관리하고 보호할 수 있습니다. 에 대해 자세히 https://docs.netapp.com/us-en/ontap/consistency-groups/index.html["일관성 그룹"]알아보십시오.
+
+
+
+=== 이중 스택
+
+이중 스택 네트워크는 IPv4 및 IPv6 주소를 동시에 사용할 수 있도록 지원하는 네트워킹 환경입니다.
+
+
+
+=== 고가용성(HA)
+
+클러스터 노드는 무중단 운영을 위해 HA 쌍으로 구성됩니다.
+
+
+
+=== LUN(Logical Unit Number)
+
+LUN은 SAN(Storage Area Network) 내에서 논리 유닛을 식별하는 데 사용되는 번호입니다. 이러한 주소 지정 가능한 디바이스는 일반적으로 SCSI(Small Computer System Interface) 프로토콜 또는 캡슐화된 파생 모델 중 하나를 통해 액세스되는 논리 디스크입니다.
+
+
+
+=== NVMe 네임스페이스 및 서브시스템
+
+NVMe 네임스페이스는 논리 블록으로 포맷될 수 있는 비휘발성 메모리의 양입니다. 네임스페이스는 FC 및 iSCSI 프로토콜을 위한 LUN과 동일하며 NVMe 서브시스템은 igroup과 유사합니다. NVMe 하위 시스템을 이니시에이터와 연결할 수 있으므로 연결된 이니시에이터가 하위 시스템 내의 네임스페이스에 액세스할 수 있습니다.
+
+
+
+=== ONTAP 도구 관리자
+
+ONTAP tools Manager를 사용하면 VMware vSphere 관리자가 관리되는 vCenter Server 인스턴스 및 온보드된 스토리지 백엔드에 대해 ONTAP 툴을 더 효율적으로 제어할 수 있습니다. ONTAP tools Manager는 vCenter Server 인스턴스, 스토리지 백엔드, 인증서, 암호 및 로그 번들 다운로드를 관리하는 데 도움이 됩니다.
+
+
+
+=== OVA(개방형 가상 어플라이언스)
+
+OVA는 가상 머신에서 실행해야 하는 가상 어플라이언스 또는 소프트웨어를 패키징하고 배포하는 개방형 표준입니다.
+
+
+
+=== 복구 지점 목표(RPO)
+
+RPO는 데이터가 백업 또는 복제되는 빈도를 나타내는 척도입니다. 운영 중단 후 비즈니스 운영을 재개하기 위해 데이터를 복구해야 하는 시점을 나타냅니다. 예를 들어 조직의 RPO가 4시간인 경우 재해 시 최대 4시간의 데이터 손실을 허용할 수 있습니다.
+
+
+
+=== SnapMirror 활성 동기화(SMAS)
+
+SnapMirror 액티브 동기화를 사용하면 전체 사이트 장애가 발생하더라도 비즈니스 서비스를 계속 운영할 수 있으므로 보조 복사본을 사용하여 애플리케이션을 투명하게 페일오버할 수 있습니다. SnapMirror 활성 동기화로 페일오버를 트리거하려면 수동 개입 또는 사용자 지정 스크립팅이 필요합니다. 자세한 정보 https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["SnapMirror 활성 동기화"].
+
+
+
+=== 스토리지 백엔드
+
+스토리지 백엔드는 ESXi 호스트가 가상 머신 파일, 데이터 및 기타 리소스를 저장하는 데 사용하는 기본 스토리지 인프라스트럭처입니다. 스토리지 백엔드를 사용하면 ESXi 호스트가 영구 데이터를 액세스하고 관리할 수 있으므로 가상화 환경에 필요한 스토리지 기능과 성능을 제공할 수 있습니다.
+
+
+
+=== SRA(Storage Replication Adapter)
+
+SRA는 VMware Live Site Recovery 어플라이언스 내부에 설치되는 스토리지 공급업체별 소프트웨어입니다. 이 어댑터를 사용하면 SVM(Storage Virtual Machine) 레벨 및 클러스터 레벨 구성에서 사이트 복구 관리자와 스토리지 컨트롤러 간의 통신이 가능합니다.
+
+
+
+=== 스토리지 가상 시스템(SVM)
+
+하이퍼바이저에서 실행되는 가상 머신과 마찬가지로 SVM은 물리적 리소스를 추상화하는 논리적 엔터티입니다. SVM은 데이터 볼륨과 클라이언트에 데이터를 제공하는 데 사용되는 하나 이상의 LIF를 포함합니다.
+
+
+
+=== 균일 및 비균일 설정
+
+* * 균일 호스트 액세스 * 는 양쪽 사이트의 호스트가 양쪽 사이트의 스토리지 클러스터에 대한 모든 경로에 접속됨을 의미합니다. 크로스 사이트 경로가 거리에 걸쳐 확장됩니다.
+* * 비균일 호스트 액세스 * 는 각 사이트의 호스트가 동일한 사이트의 클러스터에만 연결됨을 의미합니다. 사이트 간 경로 및 확장 경로가 연결되지 않았습니다.
++
+
+NOTE: 모든 SnapMirror 액티브 동기식 배포에 대해 통일된 호스트 액세스가 지원되며, 비균일 호스트 액세스는 대칭 액티브/액티브 구축에만 지원됩니다.
+
+
+
+
+
+=== VMFS(가상 머신 파일 시스템)
+
+VMFS는 VMware vSphere 환경에 가상 머신 파일을 저장하도록 특별히 설계된 클러스터 파일 시스템입니다.
+
+
+
+=== 가상 볼륨(VVOL)
+
+VVOL은 가상 머신에서 사용되는 스토리지에 대한 볼륨 수준 추상화를 제공합니다. 여기에는 여러 가지 이점이 있으며 기존 LUN을 사용하는 대신 사용할 수 있습니다. VVOL 데이터 저장소는 일반적으로 VVOL의 컨테이너 역할을 하는 단일 LUN과 연결됩니다.
+
+
+
+=== VM 스토리지 정책
+
+VM 스토리지 정책은 정책 및 프로필 아래에 vCenter Server에 생성됩니다. VVOL의 경우 NetApp VVols 스토리지 유형 공급자의 규칙을 사용하여 규칙 세트를 생성합니다.
+
+
+
+=== VMware 라이브 사이트 복구
+
+VMware Live Site Recovery는 VMware 가상 환경에 대한 무중단 업무 운영, 재해 복구, 사이트 마이그레이션 및 무중단 테스트 기능을 제공합니다.
+
+
+
+=== VASA(VMware vSphere APIs for Storage Awareness)
+
+VASA는 관리 및 관리를 위해 스토리지 어레이를 vCenter Server와 통합하는 API 세트입니다. 이 아키텍처는 VMware vSphere와 스토리지 시스템 간의 통신을 처리하는 VASA Provider를 비롯한 여러 구성 요소를 기반으로 합니다.
+
+
+
+=== VMware vSphere Storage API - 어레이 통합(VAAI)
+
+VAAI는 VMware vSphere ESXi 호스트와 스토리지 디바이스 간의 통신을 지원하는 API 집합입니다. API에는 호스트에서 스토리지 작업을 스토리지로 오프로드하는 데 사용하는 기본 작업 세트가 포함되어 있습니다. VAAI는 스토리지 집약적인 작업에 대해 상당한 성능 향상을 제공할 수 있습니다.
+
+
+
+=== vSphere Metro 스토리지 클러스터
+
+vMSC(vSphere Metro Storage Cluster)는 확장된 클러스터 구축 환경에서 vSphere를 활성화하고 지원하는 기술입니다. vMSC 솔루션은 NetApp MetroCluster 및 SnapMirror Active Sync(이전의 SMBC)에서 지원됩니다. 이러한 솔루션은 도메인 장애 시 향상된 비즈니스 연속성을 제공합니다. 복원력 모델은 특정한 구성 선택에 따라 달라집니다. 에 대해 자세히 https://core.vmware.com/resource/vmware-vsphere-metro-storage-cluster-vmsc["VMware vSphere Metro 스토리지 클러스터"]알아보십시오.
+
+
+
+=== VVOL 데이터 저장소
+
+VVol 데이터 저장소는 VASA Provider에 의해 생성되고 유지되는 VVol 컨테이너의 논리적 데이터 저장소 표현입니다.
+
+
+
+=== 제로 RPO
+
+RPO는 지정된 시간 동안 허용되는 것으로 간주되는 데이터 손실의 양인 복구 시점 목표를 나타냅니다. RPO가 0이면 데이터 손실이 허용되지 않습니다.

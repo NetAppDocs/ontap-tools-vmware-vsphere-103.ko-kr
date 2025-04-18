@@ -1,0 +1,18 @@
+---
+permalink: concepts/autosupport.html 
+sidebar: sidebar 
+keywords:  
+summary: AutoSupport는 시스템의 상태를 능동적으로 모니터링하고 NetApp 기술 지원, 내부 지원 조직 및 지원 파트너에게 메시지를 자동으로 보내는 메커니즘입니다. 
+---
+= AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport는 시스템의 상태를 능동적으로 모니터링하고 NetApp 기술 지원, 내부 지원 조직 및 지원 파트너에게 메시지를 자동으로 보내는 메커니즘입니다.
+
+스토리지 시스템을 처음 구성할 때 AutoSupport가 기본적으로 설정됩니다. AutoSupport는 AutoSupport가 활성화된 후 24시간 후에 기술 지원 부서에 메시지를 보내기 시작합니다.
+
+유지보수 콘솔 옵션 * 애플리케이션 구성 * > * AutoSupport 사용 안 함 * 을 사용하여 AutoSupport을 사용하지 않도록 설정할 수 있습니다. 활성화 상태로 두는 것이 좋습니다. AutoSupport를 활성화하면 문제를 더 빠르게 감지하고 문제를 더 빠르게 해결할 수 있습니다. 시스템은 AutoSupport 정보를 수집하여 AutoSupport가 비활성화된 경우에도 로컬에 저장합니다. 그러나 보고서를 어떤 네트워크에도 보내지 않습니다. 첫 번째 VM의 유지 관리 콘솔을 사용하여 프록시 URL을 제공해야 합니다. 애플리케이션 구성 * > * AutoSupport 프록시 URL 업데이트 * 옵션을 사용하여 프록시 URL을 입력합니다.

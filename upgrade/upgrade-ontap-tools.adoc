@@ -1,0 +1,180 @@
+---
+permalink: upgrade/upgrade-ontap-tools.html 
+sidebar: sidebar 
+keywords: upgrade 
+summary: HA 및 비 HA 구현 모두에서 업그레이드가 지원됩니다. 
+---
+= VMware vSphere 10.x용 ONTAP 툴을 10.3로 업그레이드하십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+업그레이드는 HA 및 비 HA 구현 모두에서 지원됩니다. 지원되는 업그레이드 경로는 다음과 같습니다.
+
+|===
+
+
+| VMware vSphere 10.1 및 10.2 구성에 대한 ONTAP 툴 활용 | VMware vSphere 10.3 구성을 위한 ONTAP 툴 
+
+
+| 비 HA 소형 | HA가 아닌 고급 소형 
+
+
+| HA 미디어가 아닙니다 | 비 HA 및 고급 매체 
+
+
+| 고급 소형 | HA가 아닌 고급 소형 
+
+
+| 고급 미디어 | 비 HA 및 고급 매체 
+
+
+| HA 소규모 | HA 소규모 
+
+
+| HA 중간 규모 | HA 중간 규모 
+
+
+| HA 대규모 | HA 대규모 
+|===
+
+NOTE: VMware vSphere 10.1 및 10.2용 ONTAP 툴에서 10.3으로 업그레이드할 수 있습니다. ONTAP 도구 10.0에서 10.3으로 직접 업그레이드할 수 없습니다.
+
+* 시작하기 전에 *
+
+HA가 아닌 업그레이드의 경우 ONTAP 도구 VM의 전원을 끄고 HA 업그레이드의 경우 가상 머신(VM) 설정을 변경하기 전에 첫 번째 노드의 전원을 끕니다.
+
+* 서비스 데이터가 VM에 로컬로 저장되므로 각 노드에 100GB 하드 디스크를 추가합니다.
+* 배포 종류에 따라 전원이 꺼진 VM의 CPU 및 메모리를 변경합니다. CPU 및 RAM에 대한 핫 플러그인을 활성화합니다.
++
+|===
+| 10.3 배포 유형 | 노드당 CPU(코어 | 노드당 메모리(GB)입니다 | 노드당 디스크 공간(GB)입니다 | 총 CPU(코어) | 메모리(GB) | 총 디스크 공간(GB) 
+
+
+| 비 HA 소형 | 9 | 18 | 350 | 9 | 18 | 350 
+
+
+| HA가 아닌 중간 | 13 | 26 | 350 | 13 | 26 | 350 
+
+
+| HA 소규모 | 9 | 18 | 350 | 27 | 54 | 1050 
+
+
+| HA 중간 | 13 | 26 | 350 | 39 | 78 | 1050 
+
+
+| HA 대규모 | 17 | 34 | 350 | 51 | 102 | 1050 
+|===
+* 변경이 완료된 후 VM의 전원을 켜고 서비스가 실행 상태가 될 때까지 기다립니다.
+* HA 배포의 경우 리소스를 변경하고 CPU 및 RAM용 핫 플러그인을 활성화하고 두 번째 노드와 세 번째 노드에 100GB 하드 디스크를 추가합니다. 이러한 노드를 재부팅할 필요가 없습니다.
+* ONTAP tools 10.1 또는 10.2를 사용하여 어플라이언스를 로컬 경로로 배포한 경우 업그레이드하기 전에 스냅샷을 중지해야 합니다.
+
+
+VMware vSphere 10.0용 ONTAP 도구에서 10.1로 업그레이드하는 경우 업그레이드 작업을 진행하기 전에 다음 단계를 완료해야 합니다.
+
+* 진단 활성화 *
+
+. vCenter Server에서 콘솔을 열고 ONTAP 툴을 엽니다.
+. 유지보수 사용자로 로그인합니다.
+. 4 * 를 입력하여 * 지원 및 진단 * 을 선택합니다.
+. 2 * 를 입력하여 * 원격 진단 액세스 활성화 * 를 선택합니다.
+. y * 를 입력하여 선택한 암호를 설정합니다.
+. 사용자가 'DIAG'로, 이전 단계에서 설정한 암호를 사용하여 터미널/putty에서 VM IP 주소에 로그인합니다.
+
+
+* MongoDB 백업 *
+
+다음 명령을 실행하여 MongoDB 백업을 수행합니다.
+
+* kN Exec-IT NTV-mongodb-0 sh-kn은 kubectl-n NTV-system의 별칭입니다.
+* 포드 안에서 _env | grep mongodb_root_password_command 를 실행합니다.
+* run_exit_command 를 실행하여 포드에서 나오십시오.
+* run_kn exec ntv-mongodb-0--mongodump -u root -p mongodb_root_password--archive=/tmp/mongodb-backup.gz - -gzip_command 를 실행하여 위의 명령에서 설정한 Mongo_root_password를 대체합니다.
+* run_kn CP NTV-mongodb-0:/tmp/mongodb-backup.gz./mongodb-backup.gz_command를 실행하여 위의 명령을 사용하여 생성된 MongoDB 백업을 Pod에서 호스트로 복사합니다.
+
+
+* 모든 볼륨의 Quaise 스냅샷을 촬영합니다 *
+
+* 'kn Get PVC' 명령을 실행하고 명령 출력을 저장합니다.
+* 다음 방법 중 하나를 사용하여 모든 볼륨의 스냅샷을 하나씩 생성합니다.
++
+** CLI에서 _volume snapshot create -vserver <vserver_name> -volume <volume_name> -snapshot <snapshot_name>_ 명령을 실행합니다
+** ONTAP 시스템 관리자 사용자 인터페이스의 검색 표시줄에서 볼륨을 이름으로 검색한 다음 이름을 선택하여 해당 볼륨을 엽니다. 스냅샷으로 이동하여 해당 볼륨의 스냅샷을 추가합니다.
+
+
+
+
+* vCenter에서 VMware vSphere VM용 ONTAP 툴의 스냅샷 생성(HA 구축 시 VM 3개, 비 HA 구축 시 VM 1개) *
+
+* vSphere Client 사용자 인터페이스에서 VM을 선택합니다.
+* 스냅샷 탭으로 이동하여 * 스냅샷 촬영 * 버튼을 선택합니다. VM의 일시 중지된 스냅샷을 생성합니다. 자세한 내용은 을 https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/take-snapshots-of-a-virtual-machine.html["가상 시스템의 스냅샷을 생성합니다"^] 참조하십시오.
+
+
+업그레이드를 수행하기 전에 앞에 "generate-support-bundle-job"이라는 접두사가 있는 완료된 Pod를 로그 번들에서 삭제하십시오. 지원 번들 생성이 진행 중인 경우 완료될 때까지 기다린 다음 Pod를 삭제하십시오.
+
+모든 업그레이드 유형의 경우 100GB HDD(하드 디스크 드라이브)를 추가해야 합니다. HDD를 추가하려면 다음 작업을 수행하십시오.
+
+. 단일 노드 구성의 VM을 선택하거나 HA 구성의 VM 3개 모두를 선택합니다.
+. VM을 마우스 오른쪽 버튼으로 클릭하고 * Add New Device * > * Hard Disk * 를 선택합니다
+. 새 하드 디스크 * 필드에 100GB HDD를 추가합니다.
+. 적용 * 을 선택합니다
+
+
+하드 디스크를 추가한 후 각 구성에 대한 VM 리소스를 업데이트하고 기본 VM을 다시 시작합니다.
+
+새 HDD가 생성됩니다. Dynamic Storage Provisioner는 이 HDD를 사용하여 볼륨을 생성하거나 복제합니다.
+
+.단계
+. VMware vSphere용 ONTAP 툴을 컨텐츠 라이브러리로 업그레이드합니다.
+. 기본 VM 페이지에서 * Actions * > * Edit Settings * 를 선택합니다
+. 편집 설정 창의 * CD/DVD 드라이브 * 필드에서 콘텐츠 라이브러리 ISO 파일을 선택합니다.
+. ISO 파일을 선택하고 * 확인 * 을 선택합니다. CD/DVD 드라이브 * 필드에서 연결됨 확인란을 선택합니다. image:../media/primaryvm-edit-settings.png["설정을 편집합니다"]
+. vCenter Server에서 콘솔을 열고 ONTAP 툴을 엽니다.
+. 유지보수 사용자로 로그인합니다.
+. 3 * 을 입력하여 System Configuration 메뉴를 선택합니다.
+. 7 * 을 입력하여 업그레이드 옵션을 선택합니다.
+. 를 업그레이드하면 다음 작업이 자동으로 수행됩니다.
++
+.. 인증서 업그레이드
+.. 원격 플러그인 업그레이드
+
+
+
+
+VMware vSphere 10.3용 ONTAP 툴로 업그레이드한 후 다음을 수행할 수 있습니다.
+
+* 관리자 사용자 인터페이스에서 서비스를 비활성화합니다
+* 비 HA 설정에서 HA 설정으로 이동합니다
+* HA가 아닌 소규모 구성을 HA가 아닌 매체 또는 HA 매체 또는 대규모 구성으로 확장합니다.
+* HA가 아닌 업그레이드의 경우 ONTAP 툴 VM을 재부팅하여 변경 사항을 반영합니다. HA를 업그레이드하는 경우 첫 번째 노드를 재부팅하여 노드의 변경 사항을 반영합니다.
+
+
+* 완료 후 *
+
+VMware vSphere용 ONTAP 툴의 이전 릴리스에서 10.3으로 업그레이드한 후 SRA 어댑터를 다시 검색하여 VMware 라이브 사이트 복구 스토리지 복제 어댑터 페이지에 세부 정보가 업데이트되는지 확인합니다.
+
+성공적으로 업그레이드한 후 다음 절차에 따라 ONTAP에서 Trident 볼륨을 수동으로 삭제합니다.
+
+
+NOTE: VMware vSphere 10.1 또는 10.2용 ONTAP 툴이 비 HA 소형 또는 중형(로컬 경로) 구성인 경우에는 이러한 단계가 필요하지 않습니다.
+
+. vCenter Server에서 콘솔을 열고 ONTAP 툴을 엽니다.
+. 유지보수 사용자로 로그인합니다.
+. 4 * 를 입력하여 * 지원 및 진단 * 메뉴를 선택합니다.
+. Access diagnostics shell * 옵션을 선택하려면 * 1 * 을 입력합니다.
+. 다음 명령을 실행합니다
++
+[listing]
+----
+sudo python3 /home/maint/scripts/ontap_cleanup.py
+----
+. ONTAP 사용자 이름과 암호를 입력합니다
+
+
+이렇게 하면 VMware vSphere 10.1/10.2용 ONTAP 툴에 사용된 ONTAP의 Trident 볼륨이 모두 삭제됩니다.
+
+* 관련 정보 *
+
+link:../migrate/migrate-to-latest-ontaptools.html["VMware vSphere 9.x용 ONTAP 툴에서 10.3로 마이그레이션합니다"]

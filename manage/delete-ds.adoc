@@ -1,0 +1,47 @@
+---
+permalink: manage/delete-ds.html 
+sidebar: sidebar 
+keywords: vVols datastore,delete vVol 
+summary: 데이터 저장소 삭제 작업은 데이터 저장소를 삭제합니다. NFS 또는 VMFS 데이터 저장소의 경우 데이터 저장소를 사용 중인 VM 목록이 포함된 대화 상자가 나타납니다. 
+---
+= 데이터 저장소를 삭제합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터 저장소에서 스토리지 제거 작업은 vCenter Server에서 VMware vSphere가 검색하거나 관리되는 VVol 데이터 저장소용 모든 ONTAP 툴에서 지원됩니다. 이 작업을 통해 VVOL 데이터 저장소에서 볼륨을 제거할 수 있습니다.
+
+특정 볼륨에 VVol이 있는 경우 제거 옵션이 비활성화됩니다. 데이터 저장소에서 볼륨을 제거하는 것 외에도 ONTAP 스토리지에서 선택한 볼륨을 삭제할 수 있습니다.
+
+vCenter Server의 VMware vSphere용 ONTAP 툴에서 데이터 저장소 삭제 작업은 다음과 같습니다.
+
+* VVOL 컨테이너를 마운트 해제합니다.
+* igroup을 정리합니다. igroup을 사용하고 있지 않으면 igroup에서 iqn을 제거합니다.
+* VVol 컨테이너를 삭제합니다.
+* Flex 볼륨을 스토리지 배열에 그대로 둡니다.
+
+
+vCenter Server의 ONTAP 도구에서 NFS, VMFS 또는 VVOL 데이터 저장소를 삭제하려면 다음 단계를 따르십시오.
+
+.단계
+. vSphere Client에 로그인합니다
+. 호스트 시스템 또는 호스트 클러스터 또는 데이터 센터를 마우스 오른쪽 버튼으로 클릭하고 * NetApp ONTAP tools * > * Delete datastore * 를 선택합니다.
++
+
+NOTE: 해당 데이터 저장소를 사용하는 가상 시스템이 있는 경우 데이터 저장소를 삭제할 수 없습니다. 데이터 저장소를 삭제하기 전에 가상 머신을 다른 데이터 저장소로 이동해야 합니다. 데이터 저장소가 보호된 호스트 클러스터에 속한 경우 볼륨 삭제 확인란을 선택할 수 없습니다.
+
++
+.. NFS 또는 VMFS 데이터 저장소의 경우 데이터 저장소를 사용 중인 VM 목록이 포함된 대화 상자가 나타납니다.
+.. VMFS 데이터 저장소가 ASA R2 시스템에서 생성되고 보호 대상인 경우 데이터 저장소를 삭제하기 전에 보호 해제를 수행해야 합니다.
+.. VVols 데이터 저장소의 경우 데이터 저장소 삭제 작업은 연결된 VVol이 없는 경우에만 데이터 저장소를 삭제합니다. 데이터 저장소 삭제 대화 상자에는 ONTAP 클러스터에서 볼륨을 삭제하는 옵션이 제공됩니다.
+.. ASA R2 시스템 기반 VVol 데이터 저장소의 경우 백업 볼륨을 삭제하는 확인란은 적용되지 않습니다.
+
+
+. ONTAP 스토리지에서 백업 볼륨을 삭제하려면 * Delete volumes on ONTAP cluster * 를 선택합니다.
++
+
+NOTE: 보호된 호스트 클러스터에 속하는 VMFS 데이터 저장소에 대한 ONTAP 클러스터의 볼륨은 삭제할 수 없습니다.
+
+

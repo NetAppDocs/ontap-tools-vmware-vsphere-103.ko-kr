@@ -1,0 +1,32 @@
+---
+permalink: configure/add-vcenter.html 
+sidebar: sidebar 
+keywords:  
+summary: vCenter Server 인스턴스를 VMware vSphere용 ONTAP 툴에 추가하여 vCenter Server 환경에서 가상 데이터 저장소를 구성, 관리 및 보호할 수 있습니다. 
+---
+= vCenter Server 인스턴스를 추가합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenter Server 인스턴스를 VMware vSphere용 ONTAP 툴에 추가하여 vCenter Server 환경에서 가상 데이터 저장소를 구성, 관리 및 보호할 수 있습니다.
+
+* 이 작업에 대한 정보 *
+
+ONTAP 툴을 vCenter와 통합하면 vSphere 클라이언트에서 프로비저닝, 스냅샷 및 데이터 보호와 같은 스토리지 작업을 직접 수행할 수 있으므로 별도의 스토리지 관리 콘솔로 전환할 필요가 없습니다.
+
+.단계
+. 웹 브라우저를 열고 다음 URL로 이동합니다. `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. 구축 중에 제공한 VMware vSphere 관리자 자격 증명용 ONTAP 툴을 사용하여 로그인합니다.
+. vCenter Server 인스턴스를 온보딩하려면 * vCenters * > * Add * 를 선택합니다. vCenter IP 주소 또는 호스트 이름, 사용자 이름, 암호 및 포트 세부 정보를 제공합니다.
+
+
+ONTAP 툴에 vCenter Server 인스턴스를 추가하면 다음 작업이 자동으로 트리거됩니다.
+
+* vCenter Client 플러그인이 원격 플러그인으로 등록되어 있습니다.
+* 플러그인에 대한 사용자 지정 Privileges 및 API는 vCenter Server 인스턴스에 적용됩니다.
+* 사용자 지정 역할이 생성되어 사용자를 관리합니다.
+* vSphere 사용자 인터페이스에서 플러그인이 바로 가기로 표시됩니다.
+

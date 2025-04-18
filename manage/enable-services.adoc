@@ -1,0 +1,31 @@
+---
+permalink: manage/enable-services.html 
+sidebar: sidebar 
+keywords:  
+summary: ONTAP 도구 관리자를 사용하여 관리자 암호를 변경할 수 있습니다. 
+---
+= VMware vSphere 서비스에 대해 ONTAP 툴을 사용하도록 설정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Manager: ONTAP Tools Manager를 사용하여 VASA 공급자, VVol 구성 가져오기, SRA(재해 복구)와 같은 서비스를 지원합니다.
+
+.단계
+. 웹 브라우저에서 ONTAP 도구 관리자를 실행합니다. `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. 구축 중에 제공한 VMware vSphere 관리자 자격 증명용 ONTAP 툴을 사용하여 로그인합니다.
+. 개요 섹션에서 * 어플라이언스 설정 편집 * 을 선택합니다.
+. 서비스 * 섹션에서 필요에 따라 VASA Provider, VVol 구성 가져오기, SRA(재해 복구) 등의 옵션 서비스를 활성화할 수 있습니다.
++
+서비스를 처음 설정할 때는 VASA Provider 및 SRA 자격 증명을 생성해야 합니다. vCenter Server에서 VASA Provider 및 SRA 서비스를 등록하거나 설정하는 데 사용됩니다.
+
++
+
+NOTE: 선택적 서비스를 비활성화하기 전에 ONTAP 툴로 관리되는 vCenter Server에서 해당 서비스를 사용하지 않도록 하십시오.
+
++
+Allow import of vVols configuration * 옵션은 VASA Provider 서비스가 활성화된 경우에만 표시됩니다. 이 옵션을 사용하면 ONTAP 툴 9.x에서 ONTAP 툴 10.3으로 VVol 데이터를 마이그레이션할 수 있습니다.
+
+

@@ -1,0 +1,22 @@
+---
+permalink: manage/update-proxyurl.html 
+sidebar: sidebar 
+keywords:  
+summary: 'VMware vSphere용 ONTAP Tools 그래픽 사용자 인터페이스\(GUI\)에서 사용할 수 있는 옵션을 통해 VMware vSphere용 ONTAP 툴에 대한 로그 파일을 수집할 수 있습니다. 기술 지원 부서에서 문제 해결을 위해 로그 파일을 수집하도록 요청할 수 있습니다.' 
+---
+= AutoSupport 프록시 URL을 업데이트합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+프록시 서버가 네트워크 액세스 제어 또는 보안 조치에 사용되는 시나리오에서 AutoSupport 프록시 URL을 업데이트하여 AutoSupport 기능이 올바르게 작동하는지 확인합니다. AutoSupport 데이터를 적절한 프록시를 통해 라우팅하여 안전한 전송 및 규정 준수를 보장합니다.
+
+.단계
+. vCenter Server에서 유지 관리 콘솔을 엽니다.
+. 유지보수 사용자로 로그인합니다.
+. 1을 입력하여 * 애플리케이션 구성 * 을 선택합니다.
+. 4를 입력하여 * AutoSupport 프록시 URL 업데이트 * 를 선택합니다.
+. 프록시 URL을 입력합니다.
+

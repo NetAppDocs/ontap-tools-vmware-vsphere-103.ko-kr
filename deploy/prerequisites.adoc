@@ -1,0 +1,200 @@
+---
+permalink: deploy/prerequisites.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: VMware vSphere용 ONTAP 툴을 구축하기 전에 배포 패키지의 공간 요구 사항과 몇 가지 기본적인 호스트 시스템 요구 사항을 숙지해야 합니다. 
+---
+= VMware vSphere 구축을 위한 ONTAP 툴 사전 요구 사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vSphere용 ONTAP 툴을 구축하기 전에 배포 패키지의 공간 요구 사항과 몇 가지 기본적인 호스트 시스템 요구 사항을 숙지해야 합니다.
+
+VMware vSphere용 ONTAP 툴을 VMware vCSA(vCenter Server 가상 어플라이언스)와 함께 사용할 수 있습니다. VMware vSphere용 ONTAP 툴을 ESXi 시스템이 포함된 지원되는 vSphere 클라이언트에 구축해야 합니다.
+
+
+
+== 시스템 요구 사항
+
+* * 노드별 설치 패키지 공간 요구 사항 *
++
+** 씬 프로비저닝된 설치의 경우 15GB
+** 일반 프로비저닝 설치의 경우 348GB
+
+
+* * 호스트 시스템 크기 조정 요구 사항 * 배포 크기에 따른 권장 메모리는 아래 표와 같습니다.
+
+
+|===
+
+
+| * 배포 유형 * | * CPU * | * 메모리(GB) * | * 디스크 공간(GB) 일반 프로비저닝 * 
+
+
+| 비 HA 소형 | 9 | 18 | 350 
+
+
+| HA 미디어가 아닙니다 | 13 | 26 | 350 
+
+
+| 소규모 HA(3개 노드의 누적) | 27 | 54 | 1050 
+
+
+| HA 중간(3개 노드의 누적) | 39 | 78 | 1050 
+
+
+| HA 대형(3개 노드의 누적) | 51 | 102 | 1050 
+|===
+
+
+== 최소 스토리지 및 애플리케이션 요구사항
+
+|===
+| 스토리지, 호스트 및 애플리케이션 | 최소 버전 요구 사항 
+
+
+| ONTAP | 9.14.1, 9.15.1 및 9.16.0. FAS, ASA A-Series, ASA C-Series, AFF A-Series, AFF C-Series 및 ASA R2와 같은 스토리지 효율성 기술을 보유하고 있습니다. 
+
+
+| ESXi 호스트 | ESXi 7.0.3을 참조하십시오 
+
+
+| vCenter Server입니다 | vCenter 7.0U3 
+
+
+| VASA 공급자 | 3.0 
+
+
+| OVA 응용 프로그램 | 10.3 
+|===
+상호 운용성 매트릭스 툴(IMT)에는 지원되는 ONTAP 버전, vCenter Server, ESXi 호스트 및 플러그인 애플리케이션에 대한 최신 정보가 포함되어 있습니다.
+
+https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src=IMT["상호 운용성 매트릭스 툴"^]
+
+
+
+== VMware vSphere용 ONTAP 툴을 구축하기 위한 구성 제한
+
+다음 표를 참조하여 VMware vSphere용 ONTAP 툴을 구성할 수 있습니다.
+
+|===
+
+
+| * 배포 * | * 유형 * | * VVol 수 * | * 호스트 수 * 
+
+
+| HA가 아닙니다 | 소형(S) | 12K 이하 | 32 
+
+
+| HA가 아닙니다 | 중간(M) | 24K 이하 | 64 
+
+
+| 고가용성 | 소형(S) | 24K 이하 | 64 
+
+
+| 고가용성 | 중간(M) | 5만 | 128 
+
+
+| 고가용성 | 크게(L) | 100k 이하 | 256 [참고] 표에 있는 호스트 수는 여러 vCenter의 총 호스트 수를 보여 줍니다. 
+|===
+
+
+== VMware vSphere용 ONTAP 툴 - SRA(Storage Replication Adapter)
+
+다음 표에는 VMware vSphere용 ONTAP 툴을 사용하여 VMware 라이브 사이트 복구 인스턴스당 지원되는 수가 나와 있습니다.
+
+|===
+| * vCenter 배포 크기 * | * 소형 * | * 중간 * 
+
+
+| 스토리지 기반 복제를 사용하여 보호를 위해 구성된 총 가상 시스템 수입니다 | 2000 | 5000 
+
+
+| 스토리지 기반 복제 보호 그룹의 총 수입니다 | 250 | 250 
+
+
+| 복구 계획당 총 보호 그룹 수입니다 | 50 | 50 
+
+
+| 복제된 데이터 저장소 수입니다 | 255 | 255 
+
+
+| VM 수입니다 | 4000 | 7000 
+|===
+다음 표에는 VMware Live Site Recovery의 수와 VMware vSphere 구축 크기용 ONTAP 툴의 수가 나와 있습니다.
+
+|===
+
+
+| * VMware Live Site Recovery 인스턴스 수 * | * ONTAP 도구 배포 크기 * 
+
+
+| 최대 4개 | 작은 크기 
+
+
+| 4 - 8 | 중간 
+
+
+| 8개 이상 | 대형 
+|===
+자세한 내용은 을 https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/site-recovery-manager-system-requirements/operational-limits-of-site-recovery-manager.html["VMware Live Site Recovery의 운영상의 한계"]참조하십시오.
+
+
+
+== 포트 요구 사항
+
+다음 표에는 NetApp에서 사용하는 네트워크 포트와 그 용도가 요약되어 있습니다. 이러한 포트가 열려 있고 시스템 내에서 올바른 작동 및 통신을 위해 액세스할 수 있는지 확인하십시오. 관련 서비스를 위해 이러한 포트의 트래픽이 올바르게 작동할 수 있도록 필요한 네트워크 구성이 준비되어 있는지 확인합니다. 보안 정책에 따라 네트워크 내에서 이 트래픽을 허용하도록 방화벽 또는 기타 보안 어플라이언스를 구성해야 할 수 있습니다.
+
+|===
+
+
+| * 포트 * | * 설명 * 
+
+
+| 22(TCP) | Ansible은 클러스터 프로비저닝 중의 통신에 이 SSH 포트를 사용합니다. 이 포트는 유지 보수 사용자 암호, 상태 메시지 변경 및 HA 구성의 경우 세 노드 모두에서 값을 업데이트하는 등의 기능에 필요합니다. 
+
+
+| 443(TCP) | VASA Provider 서비스에 대한 들어오는 통신을 위한 통과 포트입니다. VASA Provider 자체 서명 인증서와 사용자 지정 CA 인증서가 이 포트에서 호스팅됩니다. 
+
+
+| 8443(TCP) | 이 포트는 Swagger 및 Manager 사용자 인터페이스 애플리케이션을 통해 API 설명서를 호스팅합니다. 
+
+
+| 2379(TCP) | 이 포트는 etcd 키 값 저장소에서 키를 가져오거나, 넣거나, 삭제하거나, 감시하는 등의 클라이언트 요청에 대한 기본 포트입니다. 
+
+
+| 2380(TCP) | 이 포트는 etcd가 데이터 복제 및 일관성을 위해 사용하는 raft consensus 알고리즘에 사용되는 etcd 클러스터의 서버 간 통신을 위한 기본 포트입니다. 
+
+
+| 7472(TCP+UDP) | Prometheus 메트릭 서비스 포트입니다. 
+
+
+| 7946(TCP+UDP) | 이 포트는 Docker의 컨테이너 네트워크 검색에 사용됩니다. 
+
+
+| 9083(TCP) | 이 포트는 VASA Provider 서비스에 대해 내부적으로 사용되는 서비스 포트입니다. 
+
+
+| 1162(UDP) | SNMP 트랩 패킷 포트입니다. 
+
+
+| 6443(TCP) | 소스: RKE2 에이전트 노드. 대상: REK2 서버 노드. 설명: Kubernetes API 
+
+
+| 9345(TCP) | 소스: RKE2 에이전트 노드. 대상: REK2 서버 노드. 설명: REK2 Supervisor API 
+
+
+| 8472(TCP+UDP) | 플란넬 VXLAN을 사용하는 경우 모든 노드가 UDP 포트 8472를 통해 다른 노드에 연결할 수 있어야 합니다. 소스: 모든 RKE2 노드. 대상: 모든 REK2 노드. 설명: VXLAN과 Canal CNI 
+
+
+| 10250(TCP) | 소스: 모든 RKE2 노드. 대상: 모든 REK2 노드. 설명: Kubelet 메트릭 
+
+
+| 30000-32767(TCP) | 소스: 모든 RKE2 노드. 대상: 모든 REK2 노드. 설명: NodePort 포트 범위입니다 
+
+
+| 123(TCP) | ntpd는 이 포트를 사용하여 NTP 서버의 검증을 수행합니다. 
+|===

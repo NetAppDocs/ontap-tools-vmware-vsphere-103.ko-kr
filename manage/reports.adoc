@@ -1,0 +1,20 @@
+---
+permalink: manage/reports.html 
+sidebar: sidebar 
+keywords:  
+summary: VMware vSphere용 ONTAP 툴 플러그인은 가상 머신 및 데이터 저장소에 대한 보고서를 제공합니다. 
+---
+= ONTAP 도구 보고서
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vSphere용 ONTAP 툴 플러그인은 가상 머신 및 데이터 저장소에 대한 보고서를 제공합니다. vCenter Client의 바로 가기 섹션에서 VMware vSphere 플러그인용 NetApp ONTAP 툴 아이콘을 선택하면 사용자 인터페이스에서 개요 페이지로 이동합니다. Reports 탭을 선택하여 가상 머신과 데이터 저장소 보고서를 봅니다.
+
+가상 머신 보고서에는 검색된 가상 머신(ONTAP 스토리지 기반 데이터 저장소로부터 하나 이상의 디스크가 있어야 함) 목록이 성능 메트릭과 함께 표시됩니다. VM 레코드를 확장하면 모든 디스크 관련 데이터 저장소 정보가 표시됩니다.
+
+Datastores 보고서는 모든 유형의 ONTAP 스토리지 백엔드에서 프로비저닝된 VMware vSphere 관리 데이터 저장소에 대해 검색되거나 인식된 ONTAP 툴 목록을 성능 메트릭과 함께 표시합니다.
+
+열 관리 옵션을 사용하여 다른 열을 숨기거나 표시할 수 있습니다.

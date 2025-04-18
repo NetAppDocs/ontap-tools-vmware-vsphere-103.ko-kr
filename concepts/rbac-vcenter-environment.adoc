@@ -1,0 +1,59 @@
+---
+permalink: concepts/rbac-vcenter-environment.html 
+sidebar: sidebar 
+keywords: vcenter, vcenter server, vcenter server rbac, rbac environment 
+summary: VMware vCenter Server는 vSphere 객체에 대한 액세스를 제어할 수 있는 RBAC 기능을 제공합니다. vCenter 중앙 집중식 인증 및 권한 부여 보안 서비스의 중요한 부분입니다. 
+---
+= VMware vSphere 10용 ONTAP 툴을 사용하는 vCenter Server RBAC 환경
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vCenter Server는 vSphere 객체에 대한 액세스를 제어할 수 있는 RBAC 기능을 제공합니다. vCenter 중앙 집중식 인증 및 권한 부여 보안 서비스의 중요한 부분입니다.
+
+
+
+== vCenter Server 사용 권한 그림
+
+권한은 vCenter Server 환경에서 액세스 제어를 적용하기 위한 기반입니다. 권한 정의에 포함된 사용자 또는 그룹이 있는 vSphere 객체에 적용됩니다. 아래 그림에는 vCenter 사용 권한에 대한 개략적인 설명이 나와 있습니다.
+
+image:vc-permission.png["vCenter 사용 권한"]
+
+
+
+== vCenter Server 권한의 구성 요소입니다
+
+vCenter Server 권한은 권한이 생성될 때 함께 바인딩되는 여러 구성 요소의 패키지입니다.
+
+
+
+=== vSphere 객체
+
+사용 권한은 vCenter Server, ESXi 호스트, 가상 머신, 데이터 저장소, 데이터 센터 및 폴더와 같은 vSphere 객체와 연결됩니다. vCenter Server는 객체의 할당된 사용 권한에 따라 객체에 대해 각 사용자 또는 그룹이 수행할 수 있는 작업 또는 작업을 결정합니다. VMware vSphere용 ONTAP 툴과 관련된 작업의 경우 vCenter Server의 루트 또는 루트 폴더 레벨에서 모든 권한이 할당되고 검증됩니다. 자세한 내용은 을 link:../concepts/rbac-vcenter-use.html["vCenter Server와 함께 RBAC를 사용합니다"] 참조하십시오.
+
+
+
+=== Privileges 및 역할
+
+VMware vSphere 10용 ONTAP 툴과 함께 사용되는 vSphere Privileges에는 두 가지 유형이 있습니다. 이 환경에서 RBAC를 사용하여 작업을 간소화하기 위해 ONTAP 툴은 필요한 기본 및 사용자 지정 Privileges이 포함된 역할을 제공합니다. Privileges에는 다음이 포함됩니다.
+
+* 기본 vCenter Server 권한
++
+vCenter Server에서 제공하는 Privileges입니다.
+
+* ONTAP 도구별 권한
++
+VMware vSphere용 ONTAP 툴에 고유한 맞춤형 Privileges입니다.
+
+
+
+
+
+=== 사용자 및 그룹
+
+Active Directory 또는 로컬 vCenter Server 인스턴스를 사용하여 사용자 및 그룹을 정의할 수 있습니다. 역할과 함께 vSphere 객체 계층 구조의 객체에 대한 권한을 생성할 수 있습니다. 권한은 연결된 역할의 Privileges를 기반으로 액세스 권한을 부여합니다. 역할은 개별적으로 사용자에게 직접 할당되지 않습니다. 대신 사용자 및 그룹은 더 큰 vCenter Server 권한의 일부로 역할 Privileges를 통해 객체에 대한 액세스 권한을 얻습니다.

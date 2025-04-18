@@ -1,0 +1,36 @@
+---
+permalink: manage/unmount-datastores-on-host.html 
+sidebar: sidebar 
+keywords:  
+summary: 데이터 저장소 마운트 해제 작업은 ESXi 호스트에서 NFS 또는 VMFS 데이터 저장소를 마운트 해제합니다. 데이터 저장소 마운트 해제 작업은 VMware vSphere용 ONTAP 툴로 검색되거나 관리되는 NFS 및 VMFS 데이터 저장소에 대해 설정됩니다. 
+---
+= NFS 및 VMFS 데이터 저장소를 마운트 해제합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터 저장소 마운트 해제 작업은 ESXi 호스트에서 NFS 또는 VMFS 데이터 저장소를 마운트 해제합니다. 데이터 저장소 마운트 해제 작업은 VMware vSphere용 ONTAP 툴로 검색되거나 관리되는 NFS 및 VMFS 데이터 저장소에 대해 설정됩니다.
+
+.단계
+. vSphere Client에 로그인합니다
+. NFS 또는 VMFS 데이터 저장소 객체를 마우스 오른쪽 버튼으로 클릭하고 * Unmount datastore * 를 선택합니다.
++
+대화 상자가 열리고 데이터 저장소가 마운트된 ESXi 호스트가 나열됩니다. 보호된 데이터 저장소에서 작업을 수행하면 화면에 경고 메시지가 표시됩니다.
+
+. 데이터 저장소를 마운트 해제할 ESXi 호스트를 하나 이상 선택합니다.
++
+모든 호스트에서 데이터 저장소를 마운트 해제할 수 없습니다. 사용자 인터페이스에서 데이터 저장소 삭제 작업을 대신 사용할 것을 제안합니다.
+
+. Unmount * 버튼을 선택합니다.
++
+데이터 저장소가 보호된 호스트 클러스터의 일부인 경우 경고 메시지가 표시됩니다.
+
+
+
+
+NOTE: 보호된 데이터 저장소가 마운트 해제되면 기존 보호 설정이 부분적으로 보호될 수 있습니다. link:../manage/edit-hostcluster-protection.html["보호된 호스트 클러스터를 수정합니다"]전체 보호를 활성화하려면 을 참조하십시오.
+
+.다음 단계
+최근 작업 패널에서 진행 상황을 추적할 수 있습니다.

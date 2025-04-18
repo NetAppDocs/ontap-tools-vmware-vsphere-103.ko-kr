@@ -1,0 +1,42 @@
+---
+permalink: configure/discover-storage-systems-and-hosts.html 
+sidebar: sidebar 
+keywords:  
+summary: vSphere Client에서 VMware vSphere용 ONTAP 툴을 처음 실행하면 VMware vSphere용 ONTAP 툴이 ESXi 호스트, 해당 LUN 및 NFS 내보내기, 해당 LUN 및 내보내기를 소유한 NetApp 스토리지 시스템을 검색합니다. 
+---
+= 스토리지 시스템 및 호스트를 검색합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vSphere 클라이언트에서 VMware vSphere용 ONTAP 툴을 처음 실행하면 ONTAP 툴이 ESXi 호스트, 해당 LUN 및 NFS 내보내기, 그리고 해당 LUN 및 내보내기를 소유한 NetApp 스토리지 시스템을 검색합니다.
+
+.시작하기 전에
+* 모든 ESXi 호스트의 전원이 켜져 있고 연결되어 있어야 합니다.
+* 검색할 모든 SVM(스토리지 가상 머신)이 실행되고 있어야 하며, 각 클러스터 노드에는 사용 중인 스토리지 프로토콜(NFS 또는 iSCSI)에 대해 하나 이상의 데이터 LIF가 구성되어 있어야 합니다.
+
+
+* 이 작업에 대한 정보 *
+
+언제든지 새 스토리지 시스템을 발견하거나 기존 스토리지 시스템에 대한 정보를 업데이트하여 최신 용량 및 구성 정보를 얻을 수 있습니다. VMware vSphere용 ONTAP 툴이 스토리지 시스템에 로그인하는 데 사용하는 자격 증명을 수정할 수도 있습니다.
+
+스토리지 시스템을 검색하는 동안 VMware vSphere용 ONTAP 툴은 vCenter Server 인스턴스에서 관리하는 ESXi 호스트에서 정보를 수집합니다.
+
+.단계
+. vSphere Client 홈 페이지에서 * 호스트 및 클러스터 * 를 선택합니다.
+. 필요한 데이터 센터를 마우스 오른쪽 버튼으로 클릭하고 * NetApp ONTAP tools * > * Update Host Data * 를 선택합니다.
++
+확인 * 대화 상자에서 선택 사항을 확인합니다.
+
+. 상태인 검색된 스토리지 컨트롤러를 `Authentication Failure` 선택하고 * Actions * > * Modify * 를 선택합니다.
+. 스토리지 시스템 수정 * 대화 상자에 필요한 정보를 입력합니다.
+.  `Authentication Failure`상태가 인 모든 스토리지 컨트롤러에 대해 4단계와 5단계를 반복합니다.
+
+
+검색 프로세스가 완료되면 다음 작업을 수행합니다.
+
+* VMware vSphere용 ONTAP 툴을 사용하여 어댑터 설정 열, MPIO 설정 열 또는 NFS 설정 열에 경고 아이콘을 표시하는 호스트의 ESXi 호스트 설정을 구성합니다.
+* 스토리지 시스템 자격 증명을 제공합니다.
+

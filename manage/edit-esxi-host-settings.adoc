@@ -1,0 +1,35 @@
+---
+permalink: manage/edit-esxi-host-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: VMware vSphere용 ONTAP 툴의 대시보드를 사용하여 ESXi 호스트 설정을 편집할 수 있습니다. 
+---
+= ONTAP 툴을 사용하여 ESXi 호스트 설정을 수정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vSphere용 ONTAP 툴의 대시보드를 사용하여 ESXi 호스트 설정을 편집할 수 있습니다.
+
+.시작하기 전에
+ESXi 호스트 설정에 문제가 있는 경우 대시보드의 ESXi 호스트 시스템 포틀릿에 문제가 표시됩니다. 문제를 선택하여 문제가 발생한 ESXi 호스트의 호스트 이름 또는 IP 주소를 볼 수 있습니다.
+
+.단계
+. vSphere Client에 로그인합니다
+. 바로 가기 페이지의 플러그인 섹션에서 * NetApp ONTAP tools * 를 선택합니다.
+. VMware vSphere 플러그인용 ONTAP 툴의 개요(대시보드)에서 * ESXi 호스트 규정 준수 * 포틀릿으로 이동합니다.
+. 권장 설정 적용 * 링크를 선택합니다.
+. Apply recommended host settings * 창에서 NetApp 권장 호스트 설정을 준수할 호스트를 선택하고 * Next * 를 선택합니다.
++
+
+NOTE: ESXi 호스트를 확장하여 현재 값을 볼 수 있습니다.
+
+. 설정 페이지에서 필요한 권장 값을 선택합니다.
+. 요약 창에서 값을 확인하고 * Finish * 를 선택합니다. 최근 작업 패널에서 진행 상황을 추적할 수 있습니다.
+
+
+* 관련 정보 *
+
+link:../configure/configure-esx-server-multipath-and-timeout-settings.html["ESXi 호스트 설정을 구성합니다"]

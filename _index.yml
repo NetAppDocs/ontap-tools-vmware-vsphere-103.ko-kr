@@ -1,0 +1,38 @@
+---
+indexpage:
+  title: VMware vSphere 10.3용 ONTAP 툴 설명서
+  lead: VMware vSphere용 ONTAP 툴을 사용하면 vCenter Server 환경에서 가상 데이터 저장소를 구성, 관리 및 보호할
+    수 있습니다.
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: 릴리스 정보
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP3334864
+    - title: VMware vSphere용 ONTAP 툴에 대해 자세히 알아보십시오
+      url: "/concepts/ontap-tools-overview.html"
+    - title: VMware vSphere용 ONTAP 툴을 구축합니다
+      url: "/deploy/ontap-tools-deployment.html"
+    - title: VMware vSphere용 ONTAP 툴의 최신 릴리즈로 업그레이드하십시오
+      url: "/upgrade/upgrade-ontap-tools.html"
+    - title: VMware vSphere용 ONTAP 툴을 마이그레이션합니다
+      url: migrate/migrate-to-latest-ontaptools.html
+  - title: VMware vSphere용 ONTAP 툴 사용
+    links:
+    - title: 역할 기반 액세스 제어를 구성합니다
+      url: "/concepts/rbac-learn-about.html"
+    - title: 원격 진단 구성
+      url: "/manage/configure-remote-diagnostic-access.html"
+    - title: VMware vSphere용 ONTAP 툴의 고가용성
+      url: "/concepts/high-availability.html"
+    - title: 데이터 저장소를 보호합니다
+      url: "/protect/enable-storage-replication-adapter.html"
+  - title: 더 많은 리소스
+    links:
+    - title: VMware vSphere 9용 ONTAP 툴의 이전 버전에 대한 설명서
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63792
+    - title: NetApp 기술 자료 - VMware vSphere용 ONTAP 툴
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/VSC_and_VASA_Provider
+    - title: NetApp 커뮤니티 - VMware vSphere용 ONTAP 툴
+      url: https://community.netapp.com/t5/VMware-Solutions-Discussions/bd-p/vmware-solutions-discussions
+    - title: ONTAP 지원 VMware vSphere에 대해 자세히 알아보십시오
+      url: https://docs.netapp.com/us-en/ontap-apps-dbs/vmware/vmware-vsphere-overview.html#why-ontap-for-vsphere

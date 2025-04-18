@@ -1,0 +1,21 @@
+---
+permalink: manage/manage-storage-threshold.html 
+sidebar: sidebar 
+keywords:  
+summary: 볼륨과 집계 용량이 특정 수준에 도달하면 vCenter Server에서 알림을 받도록 임계값을 설정할 수 있습니다. 
+---
+= 스토리지 임계값 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨과 집계 용량이 특정 수준에 도달하면 vCenter Server에서 알림을 받도록 임계값을 설정할 수 있습니다.
+
+.단계:
+. vSphere Client에 로그인합니다
+. 바로 가기 페이지의 플러그인 섹션에서 * NetApp ONTAP tools * 를 선택합니다.
+. ONTAP 도구의 왼쪽 창에서 * 설정 * > * 임계값 설정 * > * 편집 * 으로 이동합니다.
+. Edit Threshold * 창에서 * 거의 다 찼음 * 및 * 전체 * 필드에 원하는 값을 입력하고 * Save * 를 선택합니다. 숫자를 권장 값으로 재설정할 수 있습니다. 이 값은 거의 가득 찬 경우 80이고 가득 찬 경우 90입니다.
+

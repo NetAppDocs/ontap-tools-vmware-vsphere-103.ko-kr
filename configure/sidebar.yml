@@ -1,0 +1,22 @@
+---
+section: configure
+title: VMware vSphere용 ONTAP 툴을 구성합니다
+entries:
+- title: vCenter Server 인스턴스를 추가합니다
+  url: "/configure/add-vcenter.html"
+- title: vCenter Server에 VASA Provider를 등록합니다
+  url: "/configure/registration-process.html"
+- title: NFS VAAI 플러그인을 설치합니다
+  url: "/configure/install-nfs-vaai-plug-in.html"
+- title: ESXi 호스트 설정을 구성합니다
+  url: "/configure/configure-esx-server-multipath-and-timeout-settings.html"
+- title: ONTAP 사용자 역할 및 권한을 구성합니다
+  url: "/configure/configure-user-role-and-privileges.html"
+- title: 스토리지 백엔드를 추가합니다
+  url: "/configure/add-storage-backend.html"
+- title: 스토리지 백엔드를 vCenter Server 인스턴스에 연결합니다
+  url: "/configure/associate-storage-backend.html"
+- title: 네트워크 액세스를 구성합니다
+  url: "/configure/configure-network-access.html"
+- title: 데이터 저장소를 생성합니다
+  url: "/configure/create-datastore.html"

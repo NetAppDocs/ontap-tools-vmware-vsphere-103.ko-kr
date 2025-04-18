@@ -1,0 +1,33 @@
+---
+permalink: concepts/high-availability.html 
+sidebar: sidebar 
+keywords:  
+summary: 'VMware vSphere용 ONTAP 툴은 고가용성\(HA\) 구성을 지원하여 장애 발생 시 VMware vSphere용 ONTAP 툴의 중단 없는 기능을 제공합니다.' 
+---
+= VMware vSphere용 ONTAP 툴의 고가용성
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vSphere용 ONTAP 툴은 고가용성(HA) 구성을 지원하여 장애 발생 시 VMware vSphere용 ONTAP 툴의 중단 없는 기능을 지원합니다.
+
+고가용성(HA) 솔루션을 통해 다음과 같은 원인으로 인한 운영 중단으로부터 신속하게 복구할 수 있습니다.
+
+* 호스트 오류입니다
++
+
+NOTE: 단일 노드 장애만 지원됩니다.
+
+* 네트워크 오류입니다
+* 가상 머신 장애(게스트 OS 장애)
+* 응용 프로그램(ONTAP 도구)이 충돌합니다
+
+
+VMware vSphere용 ONTAP 툴에 고가용성(HA)을 제공하기 위해 추가 구성이 필요하지 않습니다.
+
+
+NOTE: VMware vSphere용 ONTAP 툴은 vCenter HA를 지원하지 않습니다.
+
+HA 기능을 활성화하려면 구축 중에 또는 나중에 VMware vSphere VM용 ONTAP 툴에서 CPU 핫 추가 및 메모리 핫 플러그를 활성화해야 합니다.

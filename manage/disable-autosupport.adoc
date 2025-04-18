@@ -1,0 +1,25 @@
+---
+permalink: manage/disable-autosupport.html 
+sidebar: sidebar 
+keywords:  
+summary: 스토리지 시스템을 처음으로 구성할 경우 AutoSupport가 기본적으로 사용하도록 설정됩니다. 활성화 후 24시간 후에 기술 지원 부서에 메시지를 보냅니다. 
+---
+= AutoSupport를 비활성화합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 시스템을 처음으로 구성할 경우 AutoSupport가 기본적으로 사용하도록 설정됩니다. 활성화 후 24시간 후에 기술 지원 부서에 메시지를 보냅니다. AutoSupport를 비활성화하면 더 이상 사전 지원 및 모니터링을 받을 수 없습니다.
+
+
+NOTE: AutoSupport를 사용하도록 설정하는 것이 좋습니다. 문제 감지 및 해결 시간을 단축할 수 있습니다. 시스템이 AutoSupport 정보를 수집하여 로컬에 저장합니다. 비활성화된 경우에도 마찬가지입니다.
+
+.단계
+. vCenter Server에서 유지 관리 콘솔을 엽니다.
+. 유지보수 사용자로 로그인합니다.
+. 1을 입력하여 * 애플리케이션 구성 * 을 선택합니다.
+. 3을 입력하여 * AutoSupport 비활성화 * 를 선택합니다.
+. 확인 대화 상자에 y 를 입력합니다.
+

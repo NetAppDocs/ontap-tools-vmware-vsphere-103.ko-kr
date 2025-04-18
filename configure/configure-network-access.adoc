@@ -1,0 +1,24 @@
+---
+permalink: configure/configure-network-access.html 
+sidebar: sidebar 
+keywords: network access configuration, export policy, mount operation, ESXi hosts 
+summary: 네트워크 액세스를 구성하지 않은 경우 기본적으로 ESXi 호스트에서 검색된 모든 IP 주소가 내보내기 정책에 추가됩니다. 
+---
+= 네트워크 액세스를 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+네트워크 액세스를 구성하지 않은 경우 기본적으로 ESXi 호스트에서 검색된 모든 IP 주소가 내보내기 정책에 추가됩니다. 몇 개의 특정 IP 주소를 엑스포트 정책에 추가하고 나머지는 제외하도록 구성할 수 있습니다. 그러나 제외된 ESXi 호스트에서 마운트 작업을 수행하면 작업이 실패합니다.
+
+.단계
+. vSphere Client에 로그인합니다.
+. 플러그인 섹션 아래의 바로 가기 페이지에서 * NetApp ONTAP tools * 를 선택합니다.
+. ONTAP 도구의 왼쪽 창에서 * 설정 * > * 네트워크 액세스 관리 * > * 편집 * 으로 이동합니다.
++
+IP 주소를 여러 개 추가하려면 목록을 쉼표, 범위, CIDR(Classless Inter-Domain Routing) 또는 이 세 가지를 모두 조합하여 구분합니다.
+
+. 저장 * 을 선택합니다.
+

@@ -1,0 +1,16 @@
+---
+section: deploy
+title: VMware vSphere용 ONTAP 툴을 구축합니다
+entries:
+- title: VMware vSphere용 ONTAP 툴을 빠르게 시작합니다
+  url: "/deploy/quick-start.html"
+- title: 고가용성(HA) 배포 워크플로우
+  url: "/deploy/ha-workflow.html"
+- title: 필수 구성 요소
+  url: "/deploy/prerequisites.html"
+- title: 시작하기 전에
+  url: "/deploy/pre-deploy-checks.html"
+- title: VMware vSphere용 ONTAP 툴을 구축합니다
+  url: "/deploy/ontap-tools-deployment.html"
+- title: 배포 오류 코드입니다
+  url: "/deploy/deployment-error-codes.html"

@@ -1,0 +1,65 @@
+---
+permalink: protect/configure-array-manager.html 
+sidebar: sidebar 
+keywords:  
+summary: 'VMware Live Site Recovery의 Array Manager 마법사를 사용하여 SRA(스토리지 복제 어댑터)를 구성하여 VMware Live Site Recovery와 스토리지 가상 머신\(SVM\) 간의 상호 작용을 지원할 수 있습니다.' 
+---
+= Array Manager를 사용하여 SRA를 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware Live Site Recovery의 Array Manager 마법사를 사용하여 SRA(스토리지 복제 어댑터)를 구성하여 VMware Live Site Recovery와 SVM(스토리지 가상 머신) 간의 상호 작용을 지원할 수 있습니다.
+
+.시작하기 전에
+* VMware Live Site Recovery에서 보호된 사이트와 복구 사이트를 페어링해야 합니다.
+* 어레이 관리자를 구성하기 전에 온보드된 스토리지를 구성해야 합니다.
+* 보호된 사이트와 복구 사이트 간에 SnapMirror 관계를 구성하고 복제해야 합니다.
+* 멀티테넌시를 사용하도록 SVM 관리 LIF를 활성화해야 합니다.
+
+
+SRA는 클러스터 수준 관리 및 SVM 수준 관리를 지원합니다. 클러스터 레벨에서 스토리지를 추가하면 클러스터의 모든 SVM을 검색하고 작업을 수행할 수 있습니다. SVM 레벨에서 스토리지를 추가할 경우 해당 SVM만 관리할 수 있습니다.
+
+.단계
+. VMware Live Site Recovery에서 * Array Managers * > * Add Array Manager * 를 선택합니다.
+. VMware Live Site Recovery의 스토리지를 설명하는 다음 정보를 입력합니다.
++
+.. Display Name* 필드에 어레이 관리자를 식별할 이름을 입력하십시오.
+.. SRA Type * 필드에서 * ONTAP * 용 NetApp 스토리지 복제 어댑터를 선택합니다.
+.. 클러스터 또는 SVM에 연결할 정보를 입력합니다.
++
+*** 클러스터에 연결하려면 클러스터 관리 LIF를 입력해야 합니다.
+*** SVM에 직접 연결하는 경우 SVM 관리 LIF의 IP 주소를 입력해야 합니다.
++
+
+NOTE: 스토리지 관리자를 구성할 때는 VMware vSphere용 ONTAP 툴에서 스토리지 시스템을 온보딩하는 데 사용된 스토리지 시스템에 대해 동일한 접속(IP 주소)을 사용해야 합니다. 예를 들어, 어레이 관리자 구성이 SVM 범위인 경우 VMware vSphere용 ONTAP 툴에 있는 스토리지를 SVM 레벨에서 추가해야 합니다.
+
+
+
+.. 클러스터에 연결하려면 SVM 이름 * 필드에 SVM 이름을 입력합니다.
++
+이 필드를 비워 둘 수도 있습니다.
+
+.. Volume include list *(볼륨 포함 목록 *) 필드에 검색할 볼륨을 입력합니다.
++
+보호 사이트의 소스 볼륨 및 복구 사이트의 복제된 대상 볼륨을 입력할 수 있습니다.
+
++
+예를 들어 볼륨 dst_vol1과 SnapMirror 관계에 있는 src_vol1을 검색하려면 보호된 사이트 필드에 src_vol1을 지정하고 복구 사이트 필드에 dst_vol1을 지정해야 합니다.
+
+.. * (선택 사항) * * Volume exclude list *(볼륨 제외 목록 *) 필드에 검색에서 제외할 볼륨을 입력합니다.
++
+보호 사이트의 소스 볼륨 및 복구 사이트의 복제된 대상 볼륨을 입력할 수 있습니다.
+
++
+예를 들어 volume_dst_vol1_과 SnapMirror 관계에 있는 volume_src_vol1_을 제외하려면 보호된 사이트 필드에 _src_vol1_를 지정하고 복구 사이트 필드에 _dst_vol1_를 지정해야 합니다.
+
+
+
+. 다음 * 을 선택합니다.
+. Array Manager 추가 창 하단에 어레이가 검색되어 표시되는지 확인하고 * Finish * 를 선택합니다.
+
+
+적절한 SVM 관리 IP 주소와 자격 증명을 사용하여 복구 사이트에 대해 동일한 단계를 수행할 수 있습니다. Add Array Manager 마법사의 Enable Array Pairs 화면에서 올바른 스토리지 쌍이 선택되었는지 확인하고 사용할 준비가 되었음을 표시해야 합니다.
