@@ -15,9 +15,9 @@ summary: 스토리지 백엔드는 ESXi 호스트가 데이터 스토리지에 �
 
 * 이 작업에 대한 정보 *
 
-멀티 테넌트 아키텍처의 전역 범위 클러스터에 스토리지 백엔드를 추가하려면 ONTAP Tools Manager를 사용하여 스토리지 백엔드를 추가합니다. 글로벌 클러스터에 스토리지 백엔드를 추가한 후에는 클러스터를 원하는 vCenter 테넌트와 연결해야 합니다. vCenter 테넌트가 원하는 SVM(Storage Virtual Machine)을 온보딩해야 합니다. 이를 통해 SVM 사용자는 VVOL 데이터 저장소를 프로비저닝할 수 있습니다. SVM을 사용하여 vCenter에서 스토리지를 추가할 수 있습니다.
+vCenter가 관련 SVM과 함께 테넌트 역할을 하는 멀티테넌시 설정의 경우 ONTAP Tools Manager를 사용하여 클러스터를 추가합니다. 스토리지 백엔드를 vCenter Server와 연결하여 온보드된 vCenter Server 인스턴스에 전역적으로 매핑합니다. vCenter 테넌트가 원하는 SVM(Storage Virtual Machine)을 온보딩해야 합니다. 이를 통해 SVM 사용자는 VVOL 데이터 저장소를 프로비저닝할 수 있습니다. SVM을 사용하여 vCenter에서 스토리지를 추가할 수 있습니다.
 
-로컬 범위 클러스터에 스토리지 백엔드를 추가하려면 vCenter 서버에서 ONTAP 툴 플러그인을 사용하여 ONTAP 시스템을 직접 추가합니다.
+ONTAP 툴의 사용자 인터페이스를 사용하여 클러스터 또는 SVM 자격 증명으로 로컬 스토리지 백엔드를 추가합니다. 이러한 스토리지 백엔드는 단일 vCenter로 제한됩니다. 로컬로 클러스터 자격 증명을 사용할 경우 연결된 SVM이 vCenter에 자동으로 매핑되어 VVOL 또는 VMFS를 관리합니다. ONTAP 툴은 SRA를 포함한 VMFS 관리의 경우 글로벌 클러스터 없이 SVM 자격 증명을 지원합니다.
 
 [role="tabbed-block"]
 ====
@@ -41,9 +41,9 @@ NOTE: IPv4 및 IPv6 주소 관리 LIF가 지원됩니다.
 .vSphere Client 사용자 인터페이스 사용
 --
 
-NOTE: vSphere Client 사용자 인터페이스를 사용하여 스토리지 백엔드를 추가할 경우 VVol 데이터 저장소에서 SVM 사용자를 직접 추가할 수 없습니다.
+NOTE: vSphere Client 사용자 인터페이스를 통해 스토리지 백엔드를 구성할 때는 VVol 데이터 저장소에서 SVM 사용자를 직접 추가할 수 없습니다.
 
-. vSphere Client에 로그인합니다
+. vSphere Client에 로그인합니다.
 . 바로 가기 페이지의 플러그인 섹션에서 * NetApp ONTAP tools * 를 선택합니다.
 . 측면 표시줄에서 * Storage Backend * 를 선택합니다.
 . 스토리지 백엔드를 추가하고 서버 IP 주소, 사용자 이름, 암호 및 포트 세부 정보를 제공합니다.
