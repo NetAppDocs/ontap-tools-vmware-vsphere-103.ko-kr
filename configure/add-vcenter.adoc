@@ -21,6 +21,10 @@ ONTAP 툴을 vCenter와 통합하면 vSphere 클라이언트에서 프로비저�
 . 웹 브라우저를 열고 다음 URL로 이동합니다. `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
 . 구축 중에 제공한 VMware vSphere 관리자 자격 증명용 ONTAP 툴을 사용하여 로그인합니다.
 . vCenter Server 인스턴스를 온보딩하려면 * vCenters * > * Add * 를 선택합니다. vCenter IP 주소 또는 호스트 이름, 사용자 이름, 암호 및 포트 세부 정보를 제공합니다.
++
+
+NOTE: vCenter 인스턴스를 ONTAP 툴에 추가하기 위해 관리자 계정이 필요하지 않습니다. 제한된 권한을 가진 관리자 계정 없이 사용자 지정 역할을 만들 수 있습니다. 자세한 내용은 을 link:../concepts/rbac-vcenter-use.html["VMware vSphere 10용 ONTAP 툴과 함께 vCenter Server RBAC를 사용하십시오"] 참조하십시오.
+
 
 
 ONTAP 툴에 vCenter Server 인스턴스를 추가하면 다음 작업이 자동으로 트리거됩니다.

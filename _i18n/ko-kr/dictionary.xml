@@ -2163,4 +2163,5 @@
   <block id="3e691305a01d01aac8e30b75bd1d8a27" category="cell">내부 통신을 위한 노드 인터커넥트 IP 주소입니다</block>
   <block id="7ffde475c4ea55e9fc7c8c11becbc141" category="paragraph">vCenter가 관련 SVM과 함께 테넌트 역할을 하는 멀티테넌시 설정의 경우 ONTAP Tools Manager를 사용하여 클러스터를 추가합니다. 스토리지 백엔드를 vCenter Server와 연결하여 온보드된 vCenter Server 인스턴스에 전역적으로 매핑합니다. vCenter 테넌트가 원하는 SVM(Storage Virtual Machine)을 온보딩해야 합니다. 이를 통해 SVM 사용자는 VVOL 데이터 저장소를 프로비저닝할 수 있습니다. SVM을 사용하여 vCenter에서 스토리지를 추가할 수 있습니다.</block>
   <block id="112fa4a14bcd73096ce0a79df18e90c8" category="admonition">vSphere Client 사용자 인터페이스를 통해 스토리지 백엔드를 구성할 때는 VVol 데이터 저장소에서 SVM 사용자를 직접 추가할 수 없습니다.</block>
+  <block id="cbc2b2dc8b4ce185c5ef0381522a3cfc" category="admonition">vCenter 인스턴스를 ONTAP 툴에 추가하기 위해 관리자 계정이 필요하지 않습니다. 제한된 권한을 가진 관리자 계정 없이 사용자 지정 역할을 만들 수 있습니다. 자세한 내용은 을 <block ref="31ec071db09c0fa81e221bfe3044a965" category="inline-link-macro-rx"></block> 참조하십시오.</block>
 </blocks>
