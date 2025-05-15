@@ -15,16 +15,12 @@ NFS VAAI(NFS vStorage API for Array Integration) 플러그인은 VMware vSphere�
 
 .시작하기 전에
 *  https://mysupport.netapp.com/site/products/all/details/nfsplugin-vmware-vaai/downloads-tab["VMware VAAI용 NetApp NFS 플러그인"]설치 패키지를 다운로드합니다.
-* ESXi 호스트 7.0U3 최신 패치 이상 버전 및 ONTAP 9.14.1 이상 버전이 있는지 확인합니다.
+* ESXi 호스트와 vSphere 7.0U3 최신 패치 이상 버전 및 ONTAP 9.14.1 이상 버전이 있는지 확인합니다.
 * NFS 데이터 저장소를 마운트합니다.
-* DataMover.HardwareAcceleratedMove, DataMover.HardwareAcceleratedInit 및 VMFS3.HardwareAcceleratedLocking 호스트 설정의 값을 "1"로 설정합니다. 이러한 값을 자동으로 설정하려면 EXSi 호스트의 권장 설정을 적용합니다. 을 link:../configure/configure-esx-server-multipath-and-timeout-settings.html["ESXi 서버 다중 경로 및 시간 초과 설정을 구성합니다"]참조하십시오.
-* vserver NFS modify -vserver_name -vStorage enable 명령을 사용하여 SVM(스토리지 가상 머신)에서 vStorage 옵션을 사용하도록 설정하십시오.
-* vSphere 7.0U3 최신 패치 릴리스가 있는지 확인합니다.
-* vSphere 8.x는 NetApp NFS VAAI 플러그인 2.0.1(빌드 16)에서 지원됩니다.
 
 
 .단계
-. vSphere Client에 로그인합니다
+. vSphere Client에 로그인합니다.
 . 플러그인 섹션에서 * 바로 가기 * > * NetApp ONTAP tools * 를 선택합니다.
 . Settings * > * NFS VAAI Tools * 를 선택합니다.
 . VAAI 플러그인이 vCenter Server에 업로드되면 * Existing version * 섹션에서 * Change * 를 선택합니다. VAAI 플러그인이 vCenter Server에 업로드되지 않은 경우 * 업로드 * 버튼을 선택합니다.
@@ -33,7 +29,7 @@ NFS VAAI(NFS vStorage API for Array Integration) 플러그인은 VMware vSphere�
 +
 플러그인 설치에 적합한 ESXi 호스트만 표시됩니다. vSphere Web Client의 최근 작업 섹션에서 설치 진행률을 모니터링할 수 있습니다.
 
-. 설치가 완료된 후 ESXi 호스트를 수동으로 다시 시작해야 합니다.
+. 설치 후 ESXi 호스트를 수동으로 다시 시작합니다.
 +
 VMware 관리자가 ESXi 호스트를 다시 시작하면 VMware vSphere용 ONTAP 툴이 NFS VAAI 플러그인을 자동으로 감지하고 사용하도록 설정합니다.
 

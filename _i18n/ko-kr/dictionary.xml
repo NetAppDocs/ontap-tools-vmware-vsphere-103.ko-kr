@@ -432,15 +432,10 @@
   <block id="a4190631e34ccca7730e594f6655cc87" category="paragraph">VMware vSphere용 ONTAP 툴을 사용하면 ESXi 호스트에서 시간 초과 및 기타 값을 설정하여 최상의 성능과 성공적인 페일오버를 보장할 수 있습니다. VMware vSphere용 ONTAP 툴 세트는 내부 NetApp 테스트를 기반으로 합니다.</block>
   <block id="9232ab7e918fc93452c2dc7c8fab1b8c" category="paragraph">ESXi 호스트에서 다음 값을 설정할 수 있습니다.</block>
   <block id="ab9d8dfb65807487a899df1683e128fa" category="section-title">HBA/CNA 어댑터 설정</block>
-  <block id="d3c41b5a4cf556f3a598cc1221e08ee4" category="paragraph">NetApp 스토리지 시스템에 대해 권장되는 HBA 시간 초과 설정을 설정합니다.</block>
-  <block id="3225a10b07f1580f10dee4abc3779e6c" category="cell">매개 변수</block>
   <block id="c77eb099ccd3a59aa3a56c3c98c84669" category="cell">이 값을 다음으로 설정...</block>
   <block id="117704664d6cada78ac3107380f63d23" category="cell">Disk.QFullSampleSize 를 참조하십시오</block>
-  <block id="07b21acb18ec7b34bd91453e33448369" category="cell">모든 구성에 대해 32을 선택합니다. 이 값을 설정하면 I/O 오류가 발생하지 않습니다.</block>
   <block id="f66a3c183f0e736240b77f8b755c880e" category="cell">Disk.QFullThreshold를 참조하십시오</block>
-  <block id="ed6604a4485d16e1285db04ae3d4279f" category="cell">모든 구성에 대해 8을 선택합니다. 이 값을 설정하면 I/O 오류가 방지됩니다.</block>
   <block id="19c08de7404551288e1274186e039ef4" category="cell">Emulex FC HBA 시간 초과</block>
-  <block id="6ea7e3b1d2b04c77c55309b1aaa41f8c" category="cell">기본값.</block>
   <block id="d46cddda4da7ec11f17472d11df95b68" category="cell">QLogic FC HBA 시간 초과</block>
   <block id="c803cf4eb4cbf3a6b12b1e1cc3443970" category="section-title">MPIO 설정</block>
   <block id="6a56526090ecb77854d07be849799242" category="paragraph">MPIO 설정은 NetApp 스토리지 시스템에 대한 기본 경로를 정의합니다. 또한 사용 가능한 경로 중 최적화된 경로를 결정하고(상호 연결 케이블을 통과하는 최적화되지 않은 경로와 비교) 기본 경로를 이러한 경로 중 하나로 설정합니다.</block>
@@ -705,19 +700,13 @@
   <block id="89f7633ad6a1e114cebf9902aa42fd5c" category="paragraph">NFS VAAI(NFS vStorage API for Array Integration) 플러그인은 VMware vSphere와 NFS 스토리지 어레이를 통합하는 소프트웨어 구성 요소입니다. VMware vSphere용 ONTAP 툴을 사용하여 NFS VAAI 플러그인을 설치하면 NFS 스토리지 어레이의 고급 기능을 활용하여 특정 스토리지 관련 작업을 ESXi 호스트에서 스토리지 시스템으로 오프로드할 수 있습니다.</block>
   <block id="bf25ac3fc5bee2b3ec36e32661767682" category="inline-link">VMware VAAI용 NetApp NFS 플러그인</block>
   <block id="f9fcb823ee6471ecceb63c9625d2c8fc" category="list-text"><block ref="e6fae45561f1786d6f3534aff65b3377" category="inline-link-rx"></block>설치 패키지를 다운로드합니다.</block>
-  <block id="e27bb3e78ef59cd560e56215a182f3b3" category="list-text">ESXi 호스트 7.0U3 최신 패치 이상 버전 및 ONTAP 9.14.1 이상 버전이 있는지 확인합니다.</block>
   <block id="a585389d21dd9fbdbdc15072bd5d7010" category="list-text">NFS 데이터 저장소를 마운트합니다.</block>
-  <block id="3efe2db5c0b83bc2774d6061359381ed" category="list-text">DataMover.HardwareAcceleratedMove, DataMover.HardwareAcceleratedInit 및 VMFS3.HardwareAcceleratedLocking 호스트 설정의 값을 "1"로 설정합니다. 이러한 값을 자동으로 설정하려면 EXSi 호스트의 권장 설정을 적용합니다. 을 <block ref="a13757a488cc72436349db8983ce6613" category="inline-link-macro-rx"></block>참조하십시오.</block>
-  <block id="957daa20d20cf15a7839d7e44ecdb2ab" category="list-text">vserver NFS modify -vserver_name -vStorage enable 명령을 사용하여 SVM(스토리지 가상 머신)에서 vStorage 옵션을 사용하도록 설정하십시오.</block>
-  <block id="d5676260c3a3d58c4d9ebd79f3558bac" category="list-text">vSphere 7.0U3 최신 패치 릴리스가 있는지 확인합니다.</block>
-  <block id="ebfe914a124eb1ec0cc1d8f6d6c420cb" category="list-text">vSphere 8.x는 NetApp NFS VAAI 플러그인 2.0.1(빌드 16)에서 지원됩니다.</block>
   <block id="dbf218ab7bc36005b7fdd93dda1f6eda" category="list-text">플러그인 섹션에서 * 바로 가기 * &gt; * NetApp ONTAP tools * 를 선택합니다.</block>
   <block id="0e57b7b27807ae2427ad1a654eca765e" category="list-text">Settings * &gt; * NFS VAAI Tools * 를 선택합니다.</block>
   <block id="42e4695fefd280ddc3a6f11124586510" category="list-text">VAAI 플러그인이 vCenter Server에 업로드되면 * Existing version * 섹션에서 * Change * 를 선택합니다. VAAI 플러그인이 vCenter Server에 업로드되지 않은 경우 * 업로드 * 버튼을 선택합니다.</block>
   <block id="0aa364b40943456fe1d59c4a4a6ee32d" category="list-text">파일을 찾아 선택하고<block ref="74f7b54ea713d9f5b69839982911bbf7" prefix=" " category="inline-code"></block> * 업로드 * 를 선택하여 ONTAP 도구에 파일을 업로드합니다.</block>
   <block id="75650b415bb2c723c71117c59992e489" category="list-text">ESXi 호스트에 설치 * 를 선택하고 NFS VAAI 플러그인을 설치할 ESXi 호스트를 선택한 다음 * 설치 * 를 선택합니다.</block>
   <block id="681ca77b2652713f7e6d867f281733ec" category="paragraph">플러그인 설치에 적합한 ESXi 호스트만 표시됩니다. vSphere Web Client의 최근 작업 섹션에서 설치 진행률을 모니터링할 수 있습니다.</block>
-  <block id="4969bf5d68bb071342161a9b29a23f5c" category="list-text">설치가 완료된 후 ESXi 호스트를 수동으로 다시 시작해야 합니다.</block>
   <block id="d15e664257aa2207434ef9543a593a8d" category="paragraph">VMware 관리자가 ESXi 호스트를 다시 시작하면 VMware vSphere용 ONTAP 툴이 NFS VAAI 플러그인을 자동으로 감지하고 사용하도록 설정합니다.</block>
   <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">다음 단계</block>
   <block id="90ba1578c2c367413063e7228d8586b5" category="paragraph">NFS VAAI 플러그인을 설치하고 ESXi 호스트를 재부팅한 후에는 VAAI 복사 오프로드에 대한 올바른 NFS 내보내기 정책을 구성해야 합니다. NFS 환경에서 VAAI를 구성할 때는 다음 요구 사항을 고려하여 내보내기 정책 규칙을 구성하십시오.</block>
@@ -2171,4 +2160,7 @@
   <block id="76dc960090031506bd84c78f38fe040e" category="paragraph">업그레이드 후 가상 머신의 규정 준수 상태가 오래된 경우 다음 단계를 사용하여 스토리지 정책을 다시 적용합니다.</block>
   <block id="0f4e59ab0634b5a1f97823bc94b0f039" category="paragraph">VM 스토리지 정책 준수 * 에서 규정 준수 상태는 * 업데이트 안 됨 * 으로 표시됩니다.</block>
   <block id="3e771c8c630b8cfd1ddd0dfc7e8e7c85" category="list-text"><block ref="3e771c8c630b8cfd1ddd0dfc7e8e7c85" category="inline-link-macro-rx"></block></block>
+  <block id="395ddb6ca1b9948e32145f8fa1a9201e" category="paragraph">다음 매개 변수를 기본값으로 설정합니다.</block>
+  <block id="0882ef7c28701c98bdd62f72da8634a7" category="list-text">ESXi 호스트와 vSphere 7.0U3 최신 패치 이상 버전 및 ONTAP 9.14.1 이상 버전이 있는지 확인합니다.</block>
+  <block id="2bf603021962a26e3bcb2bea93110c9f" category="list-text">설치 후 ESXi 호스트를 수동으로 다시 시작합니다.</block>
 </blocks>
