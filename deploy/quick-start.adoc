@@ -64,9 +64,9 @@ ONTAP 툴의 사용자 인터페이스를 사용하여 클러스터 또는 SVM �
 * link:../configure/associate-storage-backend.html["스토리지 백엔드를 vCenter Server 인스턴스에 연결합니다"]
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6개"] 여러 vCenter Server로 작업하는 경우 인증서를 업그레이드합니다
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6개"] 여러 vCenter Server 인스턴스로 작업하는 경우 인증서를 업그레이드하세요.
 [role="quick-margin-para"]
-여러 vCenter Server로 작업하는 경우 자체 서명된 인증서를 CA(인증 기관) 서명된 인증서로 업그레이드하십시오.
+여러 vCenter Server 인스턴스로 작업하는 경우 자체 서명된 인증서를 인증 기관(CA) 서명 인증서로 업그레이드합니다.
 
 [role="quick-margin-list"]
 * link:../manage/certificate-manage.html["인증서를 관리합니다"]
