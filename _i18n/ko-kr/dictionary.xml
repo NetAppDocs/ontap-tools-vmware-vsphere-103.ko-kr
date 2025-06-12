@@ -2164,4 +2164,5 @@
   <block id="cc2976705cd90914f7093a509084c243" category="paragraph">여러 vCenter Server 인스턴스로 작업하는 경우 자체 서명된 인증서를 인증 기관(CA) 서명 인증서로 업그레이드합니다.</block>
   <block id="15f0aef685a07d8a64ee213328fd4abf" category="list-text">첫 번째 노드 VM에서 VMware vSphere 배포 유형에 대한 ONTAP 도구를 확인합니다.</block>
   <block id="843e69439f5c77bf5c54644b48190fc1" category="admonition">VMware vSphere HA 배포를 위한 ONTAP 도구의 경우 첫 번째 노드(node1)에서 유지 관리 콘솔 사용자 비밀번호를 변경해야 합니다.</block>
+  <block id="56564ecb20e9cb45429b432b22f216f4" category="admonition">MPIO 설정은 NVMe, NVMe/FC 및 NVMe/TCP 프로토콜에는 적용되지 않습니다.</block>
 </blocks>
