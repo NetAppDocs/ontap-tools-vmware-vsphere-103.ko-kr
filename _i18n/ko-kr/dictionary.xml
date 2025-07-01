@@ -1618,20 +1618,10 @@
   <block id="6d710894cd1d83594944bdb2f558f3dd" category="paragraph">'열 관리' 옵션을 사용하여 다른 열을 숨기거나 표시할 수 있습니다.</block>
   <block id="c46965d55afff0a89c0bb3bd26c0a653" category="summary">스토리지 데이터를 마이그레이션할 때 REST API를 사용하여 스토리지 백엔드를 수동으로 온보드합니다. VASA Provider 데이터를 마이그레이션할 때 기존 Derby 데이터베이스에서 데이터를 내보내고 MongoDB 데이터베이스로 가져옵니다.</block>
   <block id="e43b5fd407b2bc9fda1a39851a48f9bb" category="doc">VMware vSphere 9.x용 ONTAP 툴에서 10.3로 마이그레이션합니다</block>
-  <block id="656a2ce4c62bd399a29a0cc087a7eb83" category="admonition">ONTAP 툴 10.3은 VMFS 데이터 저장소를 사용하는 NVMe-oF만 지원하므로 VMware vSphere 9.x용 ONTAP 툴에서 10.3으로 마이그레이션한 후 NVMe/FC 프로토콜을 사용하는 VVOL 데이터 저장소가 작동하지 않습니다.</block>
   <block id="f9f52fdfc3b658d087ef0d1715cc2008" category="paragraph">VMware vSphere 9.12D1 및 9.13D2 릴리즈용 ONTAP 툴에서 10.3으로 마이그레이션할 수 있습니다.</block>
-  <block id="12f864a7f79090b1b0f169109899eb43" category="admonition">패치 릴리스로 업그레이드하기 전에 현재 릴리스에서 OVA 백업을 가져와야 합니다.</block>
-  <block id="135dda3ac3096b9bd31ceb04b513c216" category="section-title">일반적인 마이그레이션 단계</block>
-  <block id="e53a5f7966ebf538ff3fbae3277020fa" category="list-text">VMware vSphere 10.3 릴리즈용 ONTAP 툴로 마이그레이션할 vCenter Server 인스턴스를 추가합니다. <block ref="fbc3413db4202f1fe331f16af6b38f13" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
-  <block id="a556515aafd07bfe4c2dfa6abbaa4ccb" category="section-title">SRA 마이그레이션 단계</block>
-  <block id="b4c20aabb2d8056ffe9e2b60a0164bf2" category="paragraph">마이그레이션하기 전에 사이트 중 하나가 보호 상태이고 다른 사이트가 복구 상태에 있는지 확인합니다.</block>
-  <block id="de7cd16aa682868ad900edd519b06059" category="list-text">VMware Live Site Recovery 구성 관리 페이지로 이동합니다</block>
   <block id="77efba168b5a2059c2d20a1e2673f5d1" category="paragraph">보호 사이트와 복구 사이트 모두에서 다음 단계를 수행합니다.</block>
-  <block id="b7b423b5e37e418ae4659bcf83c729b5" category="section-title">VASA Provider 마이그레이션 단계</block>
   <block id="fdb5b6876d97a075f0bc2a07cd4be907" category="list-text">VMware vSphere 10.3용 ONTAP 툴용 OVA 구축</block>
   <block id="a8534b379980a6bb97915d2890ad3522" category="inline-link-macro">vCenter Server 인스턴스를 추가합니다</block>
-  <block id="34b17f133cdce8c13fd8b812b8c11211" category="list-text">VMware vSphere 10.3 릴리즈용 ONTAP 툴로 마이그레이션할 vCenter Server 인스턴스를 추가합니다. 을 <block ref="946669e64e0e42585f18099dec81ec03" category="inline-link-macro-rx"></block>참조하십시오.</block>
-  <block id="1c9a04fa9475b21ef9be5e7bd0f30822" category="list-text">원격 플러그인 vCenter Server API에서 로컬로 스토리지 백엔드를 온보드합니다. 마이그레이션을 위해 스토리지를 로컬 범위로 추가합니다.</block>
   <block id="4b2e39d58448cd6246edaab6e2789245" category="paragraph">*HTTP 메서드 및 끝점*</block>
   <block id="0b0231c1815d06ad4701a091ce91a740" category="paragraph">이 REST API 호출은 다음과 같은 메소드와 엔드포인트를 사용합니다.</block>
   <block id="d40e9450da0b47980b8d20417aa05da7" category="cell">* HTTP 메서드 *</block>
@@ -1640,16 +1630,13 @@
   <block id="b46b241331d5bfe90afd25ec36605c07" category="paragraph">* 처리 유형 *</block>
   <block id="288aae25bc408055f50c21c991903a44" category="paragraph">비동기식</block>
   <block id="a62fbfbe1fa2fbcd3ff1ab71d9f0cf7a" category="paragraph">* 컬링 예제 *</block>
-  <block id="80e56be2a784c57e6087b3af6db66ad9" category="paragraph">{"OTV_IP":"10.12.13.45","VASA_provider_credentials":{"username":"vasauser", "password":"***********"}"database_password":" ****************</block>
   <block id="654a9186fe9a47c1397903b9228f2c36" category="paragraph">다른 릴리스 마이그레이션에 대한 요청 본문:</block>
-  <block id="5cda9daf0baf81a9f615b94e32abb4a8" category="paragraph">{"OTV_IP":"10.12.13.45","VASA_provider_credentials":{"사용자 이름":"vasauser","암호":"**********"}</block>
   <block id="18009c9216d59118fb460184e2ec0a3d" category="paragraph">* JSON 출력 예 *</block>
   <block id="492fdcd87814cf3c979a27709fc29350" category="paragraph">작업 객체가 반환됩니다. 다음 단계에서 사용할 작업 식별자를 저장해야 합니다.</block>
   <block id="372ff7cae2da4e0d6205af97a48a61eb" category="paragraph">{"id":123,"migration_id":"d50073ce-35b4-4c51-9d2e-4ce66f802c35","status":"running"}</block>
   <block id="009dbe214d15197679fe0b95a8a01cc3" category="list-text">유지 관리 콘솔에서 VMware vSphere 스토리지 공급자용 ONTAP 툴 9.10/9.11/9.12/9.13 VASA Provider 서비스를 중지합니다.</block>
   <block id="ffdec42d5d13cecca850e153f75748ec" category="paragraph">VASA Provider를 삭제하지 마십시오.</block>
   <block id="4bf6186a3a16efffdaebdafdd4fcaf4b" category="paragraph">이전 VASA Provider가 중지되면 vCenter Server가 VMware vSphere용 ONTAP 툴로 페일오버됩니다. 모든 데이터 저장소와 VM에 액세스할 수 있으며 VMware vSphere용 ONTAP 툴을 통해 제공됩니다.</block>
-  <block id="bdfee7ad87d9004e1091e6e1762d0e84" category="paragraph">* JSON 입력 예 *</block>
   <block id="f663ec26fcc5dbf0e82a2df73c30a3e3" category="paragraph">패치 작업을 위한 요청 본문이 비어 있습니다.</block>
   <block id="15e560ab707fa2bf2b7b0833adbe8bb9" category="list-text">데이터 저장소로 이동하고 * Summary * &gt; * VM Storage policies * 를 선택합니다.</block>
   <block id="325367fe0120f7c1592bf3028da84bee" category="list-text">스토리지 VM 정책과 해당 VM을 선택합니다</block>
@@ -2103,7 +2090,6 @@
   <block id="ce0ce3ea98d033e77751261b2720fefe" category="sidebar">암호 관리</block>
   <block id="b380edc36b1ed383fd72d0b93d5857c5" category="sidebar">호스트 클러스터 보호 관리</block>
   <block id="430cbe0d7261af556b6d05cea5b38e0e" category="sidebar">호스트 클러스터 보호를 수정합니다</block>
-  <block id="9ebcd4f583a00c985808cafa9e416f71" category="sidebar">VMware vSphere 9.x용 ONTAP 툴을 10.3으로 마이그레이션합니다</block>
   <block id="f724dfae8a2bb3b34e049dcedf88d10d" category="sidebar">데이터 저장소와 가상 머신을 보호합니다</block>
   <block id="d8ddfdd9298e5862ca00168195c4be29" category="sidebar">SRA 보호를 사용하여 보호합니다</block>
   <block id="a239701adb72159a71164b036c18a53a" category="sidebar">보호 및 복구 사이트 리소스를 구성합니다</block>
@@ -2117,30 +2103,20 @@
   <block id="7ffde475c4ea55e9fc7c8c11becbc141" category="paragraph">vCenter가 관련 SVM과 함께 테넌트 역할을 하는 멀티테넌시 설정의 경우 ONTAP Tools Manager를 사용하여 클러스터를 추가합니다. 스토리지 백엔드를 vCenter Server와 연결하여 온보드된 vCenter Server 인스턴스에 전역적으로 매핑합니다. vCenter 테넌트가 원하는 SVM(Storage Virtual Machine)을 온보딩해야 합니다. 이를 통해 SVM 사용자는 VVOL 데이터 저장소를 프로비저닝할 수 있습니다. SVM을 사용하여 vCenter에서 스토리지를 추가할 수 있습니다.</block>
   <block id="112fa4a14bcd73096ce0a79df18e90c8" category="admonition">vSphere Client 사용자 인터페이스를 통해 스토리지 백엔드를 구성할 때는 VVol 데이터 저장소에서 SVM 사용자를 직접 추가할 수 없습니다.</block>
   <block id="cbc2b2dc8b4ce185c5ef0381522a3cfc" category="admonition">vCenter 인스턴스를 ONTAP 툴에 추가하기 위해 관리자 계정이 필요하지 않습니다. 제한된 권한을 가진 관리자 계정 없이 사용자 지정 역할을 만들 수 있습니다. 자세한 내용은 을 <block ref="31ec071db09c0fa81e221bfe3044a965" category="inline-link-macro-rx"></block> 참조하십시오.</block>
-  <block id="a9919517205886b598c13e9032a09059" category="paragraph">스토리지 데이터의 마이그레이션 중에 REST API를 사용하여 스토리지 백엔드를 수동으로 온보드합니다. VASA Provider 데이터 마이그레이션에는 기존 Derby 데이터베이스의 데이터를 내보내고 MongoDB 데이터베이스로 가져오는 작업이 포함됩니다.</block>
-  <block id="b7760802f5560cd215cd7dee93951bfd" category="admonition">VMware vSphere 9.XX용 ONTAP 툴에서 마이그레이션하려면 VASA Provider 및 VVol을 사용하는 경우에만 필요합니다.</block>
-  <block id="3b399f32cd58f37d5c326f406d9b291f" category="list-text">VMware vSphere 10.3 릴리즈용 ONTAP 툴용 OVA 구축</block>
-  <block id="7949ac5c6b3d4313dd4d5969af832925" category="list-text">vCenter Server에서 ONTAP 툴 플러그인을 사용하여 스토리지 백엔드를 로컬로 온보드합니다. 마이그레이션을 위해 스토리지를 로컬 범위 스토리지로 추가합니다.</block>
   <block id="46ec37b71ccf8c993dcbf7cb78fe2af7" category="admonition">페일오버가 완료되었지만 재보호가 보류 중인 경우에는 마이그레이션을 시작하지 마십시오. 마이그레이션을 진행하기 전에 재보호 프로세스가 완료되었는지 확인합니다. 테스트 페일오버가 진행 중인 경우 테스트 페일오버를 정리하고 마이그레이션을 시작합니다.</block>
   <block id="da2f48d729eae4ca1010b4a077b66b02" category="list-text">다음 단계에 따라 VMware 사이트 복구에서 VMware vSphere 9.xx용 ONTAP 툴 SRA 어댑터를 삭제합니다.</block>
   <block id="b2c26a87d051d5889e6d2e4ab1fc79de" category="list-text">스토리지 복제 어댑터 * 섹션으로 이동합니다.</block>
-  <block id="b80a5fe26546f4090c014df2108347ab" category="list-text">줄임표 메뉴에서 * Reset configuration * 을 선택합니다.</block>
   <block id="1ab7bd22ce5077185a70517ea0db34ec" category="list-text">줄임표 메뉴에서 * 삭제 * 를 선택합니다.</block>
   <block id="108af0df3d39dcc8f1002f2564a37e20" category="list-text">의 단계에 따라 VMware vSphere 10.3 SRA 어댑터용 ONTAP 툴을 설치합니다<block ref="9b6610ae0d9b3f2df042445cc8433cf4" category="inline-link-macro-rx"></block>.</block>
   <block id="e3e32085ef48d00b185f9ae05a428520" category="list-text">VMware Live Site Recovery 사용자 인터페이스 페이지에서 * 스토리지 검색 * 및 * 디바이스 검색 * 작업을 수행하고 디바이스가 마이그레이션 전과 동일하게 표시되는지 확인합니다.</block>
   <block id="6136a81a0ac0e402d6b510c2488f1d36" category="list-text">VMware vSphere용 기존 ONTAP 툴에서 더비 포트 1527을 활성화하려면 루트 사용자를 활성화하고 SSH를 통해 CLI에 로그인합니다. 그런 다음 다음 다음 명령을 실행합니다.</block>
   <block id="b5bf1eb9fc501e53457cde004db09086" category="list-text">Swagger 또는 Postman에서 다음 API를 실행하여 마이그레이션하십시오.</block>
-  <block id="45b4835ddd7ad16076afa0b51bf12d2a" category="paragraph">CURL-X POST 를 누릅니다<block ref="a9f22201e72a1b8e399b24ae5e861616" category="inline-link-rx"></block></block>
-  <block id="d15764d5088db3a571ec9ccf86341552" category="paragraph">Swagger는 다음 URL을 통해 액세스할 수 있습니다. "https://$FQDN_IP_PORT/,:<block ref="1f852f41a6044590b385b39eaef5531e" category="inline-link-rx"></block>.</block>
   <block id="54caf31d7246402cdcb6cd5c255c5c64" category="paragraph">CURL-X POST 를 누릅니다<block ref="4042f1acb8fe47ca556f8b938a8d6e08" category="inline-link-rx"></block></block>
-  <block id="40e0776d71fd5d591d53e451a6006fa9" category="paragraph">9.12 및 9.13에서 마이그레이션 요청 본문:</block>
   <block id="91377d2edc3d930017c1b8c4679bdb89" category="list-text">Swagger에서 다음 URI를 사용하여 상태를 확인합니다.</block>
   <block id="b02dd8a7793406878f54951af581d6f2" category="paragraph">작업을 완료한 후 마이그레이션 보고서를 검토합니다. 이 보고서는 작업 데이터에 포함되며 작업 응답에서 액세스할 수 있습니다.</block>
   <block id="4551975cd29f0bfb98cd73d6f5cb8388" category="inline-link-macro">VASA Provider를 등록합니다</block>
-  <block id="0edd46e4487a559e489864eebe825e64" category="list-text">VMware vSphere 스토리지 공급자용 ONTAP 툴을 vCenter Server 및 VMware vSphere용 ONTAP 툴과 함께 추가합니다<block ref="c283b8bc021fee7e6c856fce39783a46" category="inline-link-macro-rx"></block>.</block>
   <block id="588348e2b65e0439aeb5d92799e13781" category="inline-link-macro">VASA Provider를 설정합니다</block>
   <block id="afba674b121ae477fe8d69c9920021ef" category="list-text"><block ref="3f0f412beb77bd4bc4dc7f97f661a149" category="inline-link-macro-rx"></block> VMware vSphere 10.3용 ONTAP 툴에 대한 서비스입니다.</block>
-  <block id="43278c46500368f0b18a81d5a9eabd6c" category="list-text">VMware vSphere 9.xx용 ONTAP 툴에서 마이그레이션된 NFS 및 VMFS 데이터 저장소는 데이터 저장소 검색 작업이 트리거된 후에만 VMware vSphere 10.3용 ONTAP 툴에 표시됩니다. 이 작업은 완료하는 데 최대 30분이 걸릴 수 있습니다. VMware vSphere Plugin 사용자 인터페이스용 ONTAP Tools 페이지의 개요 페이지에 데이터 저장소가 표시되는지 확인합니다.</block>
   <block id="96b2fedcc932770f843418dedfe7f004" category="list-text">Swagger 또는 Postman에서 다음 API를 사용하여 패치 마이그레이션을 수행합니다.</block>
   <block id="99a490d727b23ee47f3b441a7342d420" category="paragraph">curl-X 패치 <block ref="fd07e34d045cf59e25acb7168e60f530" category="inline-link-rx"></block></block>
   <block id="84a75f6b0a005e405f2680d9ab007b12" category="admonition">UUID는 마이그레이션 후 API에 대한 응답으로 반환된 마이그레이션 UUID입니다.</block>
@@ -2165,4 +2141,131 @@
   <block id="15f0aef685a07d8a64ee213328fd4abf" category="list-text">첫 번째 노드 VM에서 VMware vSphere 배포 유형에 대한 ONTAP 도구를 확인합니다.</block>
   <block id="843e69439f5c77bf5c54644b48190fc1" category="admonition">VMware vSphere HA 배포를 위한 ONTAP 도구의 경우 첫 번째 노드(node1)에서 유지 관리 콘솔 사용자 비밀번호를 변경해야 합니다.</block>
   <block id="56564ecb20e9cb45429b432b22f216f4" category="admonition">MPIO 설정은 NVMe, NVMe/FC 및 NVMe/TCP 프로토콜에는 적용되지 않습니다.</block>
+  <block id="d12f6b7d9e336bb21523e27a7954a424" category="doc">VMware vSphere용 ONTAP 도구의 igroups 및 내보내기 정책 이해</block>
+  <block id="27fa3073e12d15edf2d9cd750cf92bd4" category="paragraph">이니시에이터 그룹(igroup)은 FC 프로토콜 호스트 WWPN(World Wide Port Name) 또는 iSCSI 호스트 정규 노드 이름의 테이블입니다. igroup을 정의하고 LUN에 매핑하여 LUN에 액세스할 수 있는 이니시에이터를 제어할 수 있습니다.</block>
+  <block id="138a039e4dddf6a33f72d3080556a984" category="paragraph">VMware vSphere 9.x용 ONTAP 도구에서 igroup은 vCenter의 각 데이터스토어가 단일 igroup과 연결되는 플랫 구조로 생성 및 관리되었습니다. 이 모델은 여러 데이터스토어에서 igroup의 유연성과 재사용성을 제한했습니다. VMware vSphere 10.x용 ONTAP 도구는 중첩 igroup을 도입하여 vCenter의 각 데이터스토어가 상위 igroup과 연결되고, 각 호스트는 해당 상위 igroup 아래의 하위 igroup에 연결됩니다. VMware 여러 데이터스토어에서 재사용할 수 있도록 사용자 정의 이름으로 사용자 지정 상위 igroup을 정의하여 igroup을 더욱 유연하고 상호 연결된 방식으로 관리할 수 있습니다. vSphere용 ONTAP 도구에서 LUN과 데이터스토어를 효과적으로 관리하려면 igroup 워크플로우를 이해하는 것이 필수적입니다. 다음 예와 같이 워크플로우에 따라 다양한 igroup 구성이 생성됩니다.</block>
+  <block id="ae993cdc1fd6c1873ab68a1c6ee58ead" category="admonition">언급된 이름은 예시 목적으로만 사용되었으며 실제 igroup 이름을 나타내는 것이 아닙니다. ONTAP 도구에서 관리하는 igroup은 "otv_" 접두사를 사용합니다. 사용자 지정 igroup에는 원하는 이름을 지정할 수 있습니다.</block>
+  <block id="cf5f3091e30dee6597885d8c0e0c357f" category="cell">기간</block>
+  <block id="1b63a2eb7e8a70cf1b8b669bc150e401" category="cell">DS&lt;숫자&gt;</block>
+  <block id="8a5227cc82d14862956938caffc1acf2" category="cell">데이터 저장소</block>
+  <block id="95a16b532fa8ed9188599929af9e5262" category="cell">iqn&lt;숫자&gt;</block>
+  <block id="edb0132f304c760893f41c94545adda7" category="cell">초기자 IQN</block>
+  <block id="41ec3b4baa8c2ac4670f3d8b342745f4" category="cell">호스트&lt;번호&gt;</block>
+  <block id="eebd7b1ed737a71cd20f07184995f2d6" category="cell">호스트 MoRef</block>
+  <block id="94c6c072c97f90138ebb2ee074be8600" category="cell">lun&lt;숫자&gt;</block>
+  <block id="77863eecd3628172144d619c2f03fb64" category="cell">LUN ID입니다</block>
+  <block id="b989cbd0eba5a3051041de7edfa979e5" category="cell">&lt;DSName&gt;Igroup&lt;번호&gt;</block>
+  <block id="d8cba531cf36a19013999be13aebec3a" category="cell">기본(ONTAP 도구 관리) 상위 igroup</block>
+  <block id="3dc1d1c3dce65c0c38318e1ebbcd4dee" category="cell">&lt;호스트-모어&gt;그룹&lt;번호&gt;</block>
+  <block id="7373da93b05c2b988adcaa5fbf0edfcc" category="cell">어린이 i그룹</block>
+  <block id="4bd15973d38707ac9b65aaf3f989ed0f" category="cell">CustomIgroup&lt;숫자&gt;</block>
+  <block id="a81c9d5d7cdd61b993abfc37eaf551db" category="cell">사용자 정의 사용자 정의 상위 igroup</block>
+  <block id="c9addbf487b919c868ba38bce10c0fec" category="cell">ClassicIgroup&lt;숫자&gt;</block>
+  <block id="b6c271eb9e2a9392b22e2be5c7aa3614" category="cell">ONTAP 도구 9.x 버전에서 사용되는 igroup입니다.</block>
+  <block id="0b7b29d7656d8d29ec3286a241de010e" category="paragraph-title">예시 1:</block>
+  <block id="f55636419489fc39d90e3b2ec66d66d1" category="paragraph">하나의 이니시에이터로 단일 호스트에 데이터 저장소 생성</block>
+  <block id="239346122912a11ed5cbb915016a28e3" category="paragraph">*작업 흐름*: [생성] DS1(lun1): host1(iqn1)</block>
+  <block id="184e7557d37448b68814a3826b88604b" category="paragraph">* 결과 *:</block>
+  <block id="29792d8650120f6afd7c0ece95876b79" category="list-text">DS1Igroup:</block>
+  <block id="337504141d62bdffc7f0b1a0e1bb16af" category="list-text">host1Igroup → (iqn1: lun1)</block>
+  <block id="71c3f3b14a29b76e7d9976e1fd92866d" category="paragraph">DS1에 대한 부모 igroup DS1Igroup이 ONTAP 시스템에 생성되고, lun1에 매핑된 자식 igroup host1Igroup이 생성됩니다. LUN은 항상 자식 igroup에 매핑됩니다.</block>
+  <block id="2be7ab20c80a99b42fc79400ca3f36ea" category="paragraph-title">예시 2:</block>
+  <block id="be3104bc1fff4c1bfb9f5da101aed986" category="paragraph">기존 데이터 저장소를 추가 호스트에 마운트합니다.</block>
+  <block id="835065c40104234c9a8abb4875fbeba8" category="paragraph">*워크플로*: [마운트] DS1(lun1): host2(iqn2)</block>
+  <block id="2297adf1ae6c60ea9363ce5ef2e41f52" category="list-text">host2Igroup → (iqn2: lun1)</block>
+  <block id="d2b07c984d7fce344070b5c0752a51d8" category="paragraph">자식 igroup host2Igroup이 생성되어 기존 부모 igroup DS1Igroup에 추가됩니다.</block>
+  <block id="2d6cceda29fb927297683321657cc7f7" category="paragraph-title">예시 3:</block>
+  <block id="6e0ad0300479c496e85c7f90f364f3da" category="paragraph">호스트에서 데이터 저장소 마운트 해제</block>
+  <block id="1042a36d4bd6b198c75db206e253d6a1" category="paragraph">*워크플로*: [마운트 해제] DS1(lun1): 호스트1(iqn1)</block>
+  <block id="99fb3d64e6243f94e6f41859fd70993d" category="paragraph">host1Igroup이 계층 구조에서 제거됩니다. 자식 igroup은 명시적으로 삭제되지 않습니다. 삭제는 다음 두 가지 조건에서 발생합니다. • LUN이 매핑되지 않은 경우 ONTAP 시스템은 자식 igroup을 삭제합니다. • 예약된 정리 작업을 통해 LUN 매핑이 없는 불안정한 자식 igroup을 제거합니다. 이러한 시나리오는 ONTAP 도구에서 관리하는 igroup에만 적용되며, 사용자 지정 igroup에는 적용되지 않습니다.</block>
+  <block id="041ec4ff6ad5f804da8976d697659842" category="paragraph-title">예시 4:</block>
+  <block id="e5e28486c61b67fca6b2ef177a5f9359" category="paragraph">데이터 저장소 삭제</block>
+  <block id="4a3642a61d33fc5e86d2b97fb3ec5b26" category="paragraph">*작업 흐름*: [삭제] DS1(lun1): host2(iqn2)</block>
+  <block id="a221428f85ab85b50304989ceb5f1013" category="paragraph">다른 데이터 저장소가 부모 igroup을 재사용하지 않으면 부모 및 자식 igroup이 제거됩니다. 자식 igroup은 명시적으로 삭제되지 않습니다.</block>
+  <block id="8c0e16266857385b0b0b181e3b641f04" category="paragraph-title">예시 5:</block>
+  <block id="726d4f85c9b9eaa5f6c5968d19c3a7df" category="paragraph">사용자 정의 부모 igroup 아래에 여러 데이터 저장소 만들기</block>
+  <block id="bea6104954555c1b763633c7a55ea6f8" category="paragraph">*작업 흐름*:</block>
+  <block id="19e99edc83cbbbcc6ab8d304178f9046" category="list-text">[생성] DS2(lun2): host1(iqn1), host2(iqn2)</block>
+  <block id="cb4835be3502172f05fc0fb1636c6f71" category="list-text">[생성] DS3(lun3): host1(iqn1), host3(iqn3)</block>
+  <block id="1349428cc30cda216cf2019786367f2e" category="list-text">CustomIgroup1:</block>
+  <block id="da0fa0c3efce4fb609fc503d43009a84" category="list-text">host1Igroup → (iqn1: lun2, lun3)</block>
+  <block id="f89b4a662e7511de5794930a38008165" category="list-text">host2Igroup → (iqn2: lun2)</block>
+  <block id="9db51efb0434c0f5d42d43e58d48a6d0" category="list-text">host3Igroup → (iqn3: lun3)</block>
+  <block id="ee0f441220124ad6f5f79f31ca2850c1" category="paragraph">CustomIgroup1은 DS2용으로 생성되어 DS3에 재사용됩니다. 공유 부모 아래에 자식 igroup이 생성되거나 업데이트되며, 각 자식 igroup은 해당 LUN에 매핑됩니다.</block>
+  <block id="a09d3d7fa6e5e57286de75b1ba1b3b81" category="paragraph-title">예시 6:</block>
+  <block id="14962f74dc2fca05f3ae890d88732a98" category="paragraph">사용자 정의 상위 igroup에 있는 하나의 데이터 저장소를 삭제합니다.</block>
+  <block id="e33a694e17ff6619f6b2fe691a1d309a" category="paragraph">*작업 흐름*: [삭제] DS2(lun2): host1(iqn1), host2(iqn2)</block>
+  <block id="67b13646bf72c18d796c8bf3198f5814" category="list-text">host1Igroup → (iqn1: lun3)</block>
+  <block id="6db15a5e6a1d1e2fef5984c15cc5eb69" category="list-text">CustomIgroup1은 재사용되지 않더라도 삭제되지 않습니다.</block>
+  <block id="382a19507b1950afa51e368afebb5fcc" category="list-text">LUN이 매핑되지 않으면 ONTAP 시스템은 host2Igroup을 삭제합니다.</block>
+  <block id="32af8db1601aae83c5ed7e84130e7e2f" category="list-text">host1Igroup은 DS3의 lun3에 매핑되어 있으므로 삭제되지 않습니다. 사용자 지정 igroup은 재사용 상태와 관계없이 삭제되지 않습니다.</block>
+  <block id="5152900fa2b4fe857b3d0f2bf9c7b1eb" category="paragraph-title">예시 7:</block>
+  <block id="96c7142b58bd9e54729ddd088e808dc7" category="paragraph">vVols 데이터 저장소 확장(볼륨 추가)</block>
+  <block id="d5819bf04d1e61714a844702340b0d01" category="paragraph">확장 전:</block>
+  <block id="4c770faced138366beb0f7a04f395d83" category="paragraph">[확장] DS4(lun4): host4(iqn4)</block>
+  <block id="51ebf26e977eb695e06cf1b254d79a30" category="list-text">DS4Igroup: host4Igroup → (iqn4: lun4)</block>
+  <block id="c367cd17021bf2e5e0481fdd6e7ae90b" category="paragraph">확장 후:</block>
+  <block id="6594f9252d2a17fc4bad619de20a7757" category="paragraph">[확장] DS4(lun4, lun5): host4(iqn4)</block>
+  <block id="aa5e06dab7f5d9a795d5333805806c5c" category="list-text">DS4Igroup: host4Igroup → (iqn4: lun4, lun5)</block>
+  <block id="a00c0ff3a9039b59496981135459ef0f" category="paragraph">새로운 LUN이 생성되어 기존 자식 igroup host4Igroup에 매핑됩니다.</block>
+  <block id="d8b6441496bad3b41e04f590687e0880" category="paragraph-title">예시 8:</block>
+  <block id="9e8052e57e1cbe7ffc7f3aed17d3a225" category="paragraph">vVols 데이터 저장소 축소(볼륨 제거)</block>
+  <block id="a6c4fbf684b02254a93362b7f87f46b3" category="paragraph">수축 전:</block>
+  <block id="392dcdd65448cf07c9c771abcd18cf1d" category="paragraph">[Shrink] DS4(lun4, lun5): host4(iqn4)</block>
+  <block id="8e16bef4ac0dfac3f3858a459f385130" category="paragraph">수축 후:</block>
+  <block id="32fb6c0701827305127700e83186ed50" category="paragraph">[축소] DS4(lun4): host4(iqn4)</block>
+  <block id="44aac1af9c3e4914e749589a45fb9355" category="paragraph">지정된 LUN(lun5)이 자식 igroup에서 매핑 해제됩니다. igroup은 매핑된 LUN이 하나 이상 있는 한 활성 상태로 유지됩니다.</block>
+  <block id="04866dfa9cd876e3761fb20cb80cc396" category="paragraph-title">예시 9:</block>
+  <block id="40f0d0153abdb5aa1e2c4d8bff1c093e" category="paragraph">ONTAP 도구 9에서 10으로 마이그레이션(igroup 정규화)</block>
+  <block id="91d00fcabdddfee3723ef8914e95006a" category="paragraph">VMware vSphere 9.x 버전용 ONTAP 도구는 계층형 igroup을 지원하지 않습니다. 10.3 이상 버전으로 마이그레이션하는 동안 igroup을 계층 구조로 정규화해야 합니다.</block>
+  <block id="51d52f26bb3fadc49354d8294632607a" category="paragraph">이전 전:</block>
+  <block id="551fe7e3259b26ff1787acbea836b895" category="paragraph">[마이그레이션] DS6(lun6, lun7): host6(iqn6), host7(iqn7) → ClassicIgroup1(iqn6 &amp; iqn7: lun6, lun7)</block>
+  <block id="d5d2d4dab88d65ed1d095044810e95c5" category="paragraph">ONTAP 도구 9.x 로직은 일대일 호스트 매핑을 적용하지 않고도 igroup당 여러 개의 개시자를 허용합니다.</block>
+  <block id="e1511f1b44bc4c0e4bf944f12546a9e8" category="paragraph">마이그레이션 후:</block>
+  <block id="a7d16c97cdedffae87ecd1f35d0ac590" category="paragraph">[마이그레이션] DS6(lun6, lun7): host6(iqn6), host7(iqn7) → ClassicIgroup1: otv_ClassicIgroup1(iqn6 &amp; iqn7: lun6, lun7)</block>
+  <block id="d993b7559126972c5320acf14fe956d9" category="paragraph">마이그레이션 중:</block>
+  <block id="8e328318bac6efeb120cc4c6cd3df1e7" category="list-text">새로운 상위 igroup(ClassicIgroup1)이 생성됩니다.</block>
+  <block id="5682831142ad0882b1551736c0a14535" category="list-text">원래 igroup은 otv_ 접두사로 이름이 바뀌고 자식 igroup이 됩니다.</block>
+  <block id="a1d7bef497585c5e3e0761a58c9192df" category="paragraph">이를 통해 계층적 모델을 준수할 수 있습니다.</block>
+  <block id="9d7e0542459b60f98e1d8529e2c87e4e" category="paragraph-title">관련 항목</block>
+  <block id="19dea799245ee5cf6e758f51c6b46e67" category="inline-link">Igroup 정보</block>
+  <block id="9ec090c0889f67a04d8d16ec3fc894af" category="paragraph"><block ref="9ec090c0889f67a04d8d16ec3fc894af" category="inline-link-rx"></block></block>
+  <block id="bd4308f8ba5f92aa81fb16563206441d" category="section-title">엑스포트 정책</block>
+  <block id="483d357ed85943a2600f4700b4234595" category="paragraph">내보내기 정책은 VMware vSphere용 ONTAP 도구에서 NFS 데이터 저장소에 대한 액세스를 제어합니다. 이 정책은 데이터 저장소에 액세스할 수 있는 클라이언트와 해당 클라이언트가 가진 권한을 정의합니다. 내보내기 정책은 ONTAP 시스템에서 생성 및 관리되며, NFS 데이터 저장소와 연결하여 액세스 제어를 적용할 수 있습니다. 각 내보내기 정책은 액세스가 허용되는 클라이언트(IP 주소 또는 서브넷)와 부여되는 권한(읽기 전용 또는 읽기-쓰기)을 지정하는 규칙으로 구성됩니다.</block>
+  <block id="df454efba6089b22bf497aa6bdafcce9" category="paragraph">VMware vSphere용 ONTAP 도구에서 NFS 데이터스토어를 생성할 때 기존 내보내기 정책을 선택하거나 새 정책을 생성할 수 있습니다. 내보내기 정책은 데이터스토어에 적용되어 권한이 있는 클라이언트만 액세스할 수 있도록 합니다.</block>
+  <block id="e25beec793547cce47bd3965725ecdb1" category="paragraph">새 ESXi 호스트에 NFS 데이터스토어를 마운트하면 VMware vSphere용 ONTAP 도구가 호스트의 IP 주소를 데이터스토어와 연결된 기존 내보내기 정책에 추가합니다. 이를 통해 새 호스트는 새 내보내기 정책을 생성하지 않고도 데이터스토어에 액세스할 수 있습니다.</block>
+  <block id="52faf43c83a97dd583b56f8fd4367598" category="paragraph">ESXi 호스트에서 NFS 데이터스토어를 삭제하거나 마운트 해제하면 ONTAP Tools for VMware vSphere가 내보내기 정책에서 호스트의 IP 주소를 제거합니다. 다른 호스트에서 해당 내보내기 정책을 사용하지 않으면 해당 정책은 삭제됩니다. NFS 데이터스토어를 삭제하면 ONTAP Tools for VMware vSphere는 다른 데이터스토어에서 재사용되지 않는 경우 해당 데이터스토어와 연결된 내보내기 정책을 제거합니다. 내보내기 정책이 재사용되면 호스트 IP 주소는 그대로 유지되고 변경되지 않습니다. 데이터스토어를 삭제하면 내보내기 정책은 호스트 IP 주소 할당을 해제하고 기본 내보내기 정책을 할당하여 ONTAP 시스템이 필요한 경우 해당 정책에 액세스할 수 있도록 합니다.</block>
+  <block id="064bdf085906b78017207e105ea1456c" category="paragraph">여러 데이터스토어에서 재사용되는 내보내기 정책 할당 방식은 다릅니다. 내보내기 정책을 재사용할 경우 새 호스트 IP 주소를 정책에 추가할 수 있습니다. 공유 내보내기 정책을 사용하는 데이터스토어를 삭제하거나 마운트 해제해도 정책은 삭제되지 않습니다. 정책은 변경되지 않고, 다른 데이터스토어와 공유되므로 호스트 IP 주소도 제거되지 않습니다. 내보내기 정책을 재사용하면 액세스 및 지연 시간 문제가 발생할 수 있으므로 권장하지 않습니다.</block>
+  <block id="bb53c6c29f127a298da7dd86bf00bb89" category="inline-link">엑스포트 정책을 생성합니다</block>
+  <block id="c7196e0d279885126e6f1c8cf1f7195f" category="paragraph"><block ref="c7196e0d279885126e6f1c8cf1f7195f" category="inline-link-rx"></block></block>
+  <block id="81ee8f71716710530978c5d35f28e92b" category="doc">VMware vSphere 9.xx용 ONTAP 툴에서 10.3로 마이그레이션합니다</block>
+  <block id="188f30594923570222a6f1488e852e69" category="paragraph">VMware vSphere용 NetApp ONTAP 도구를 버전 9.xx에서 10.x로 옮기려면 버전 전반에 걸쳐 중요한 제품 업데이트와 개선 사항이 적용되므로 마이그레이션 프로세스가 필요합니다.</block>
+  <block id="8b6081846f56ef049557c82e5b444e2d" category="paragraph">설정에 NFS 및 VMFS 데이터 저장소가 있고 vVols 데이터 저장소가 없는 경우 ONTAP Tools 9.xx를 제거하고 ONTAP Tools 10.x를 배포하면 됩니다. 하지만 설정에 vVols 데이터 저장소가 포함된 경우 VASA Provider와 SRA를 마이그레이션하는 과정을 거쳐야 합니다.</block>
+  <block id="30725e73463cac6869eb16851a0b7f1f" category="paragraph">다음 표에서는 두 가지 시나리오에서의 마이그레이션 프로세스를 간략하게 설명합니다.</block>
+  <block id="481ad82ca4c063eed4e75acc5640a962" category="cell">*설정에 vVols 데이터 저장소가 있는 경우*</block>
+  <block id="122962cdef914297e7bd27106c4b08ef" category="cell">*설정에 NFS 및 VMFS 데이터 저장소만 포함된 경우*</block>
+  <block id="23582373a176f3a1391b91644579b591" category="inline-link-macro">VASA 공급자 마이그레이션</block>
+  <block id="6e4d49fbd70ad4839257ed5ced55d275" category="inline-link">VM 스토리지 정책 생성</block>
+  <block id="56e81eec05ba3edf697b5613dfbb8977" category="cell">단계: 1. <block ref="393201960d4eefccacb06cc7ccdc8cfc" category="inline-link-macro-rx"></block> 2. <block ref="2f4f76d1186f7e1931e429142840bca6" category="inline-link-rx"></block></block>
+  <block id="e07adc488f8e869e6267c0f7a1ccee08" category="inline-link-macro">VMware vSphere 10.3에 대한 ONTAP 도구 배포 및 구성</block>
+  <block id="690fca4891ecdd9975fe5dc5bd2a520b" category="inline-link-macro">SRA를 업데이트합니다</block>
+  <block id="ae2e6f54444edfbcea323e8f64be5184" category="inline-link">환경에서 OTV 9.xx를 제거하는 방법</block>
+  <block id="84645f58bac1a3ef293c7f9fa8c6c989" category="cell">단계: 1. 환경에서 ONTAP 도구 9.xx를 제거합니다. 다음을 참조하세요. <block ref="9bde8c27ff3ba526e74c5e0434eb2686" category="inline-link-rx"></block> NetApp 기술 자료 문서. 2. <block ref="ed7f206c59f60e7024e5e58e1da041e1" category="inline-link-macro-rx"></block> 3. <block ref="a29d94f131e388c7ee7c4a56d062be87" category="inline-link-macro-rx"></block> 4. <block ref="2f4f76d1186f7e1931e429142840bca6" category="inline-link-rx"></block></block>
+  <block id="4639c1f094e9032d39d96a62ddb513a1" category="admonition">VMware vSphere 9.xx용 ONTAP 툴에서 10.3로 마이그레이션한 후 NVMe/FC 프로토콜을 사용하는 VVOL 데이터 저장소가 작동하지 않게 됩니다. ONTAP 툴 10.3는 VMFS 데이터 저장소에서만 NVMe-oF 프로토콜을 지원하기 때문입니다.</block>
+  <block id="3d73385f16fa6d4daf757e66c8eab31b" category="doc">VASA 공급자를 마이그레이션하고 SRA를 업데이트합니다.</block>
+  <block id="74a0fcc4fbe41d518dabd4de3a069584" category="section-title">VASA 공급자를 마이그레이션하는 단계</block>
+  <block id="ca5b5c9d7f0f22e3bbee025129399458" category="list-text">VMware vSphere 10.3 릴리즈용 ONTAP 툴로 마이그레이션할 vCenter Server 인스턴스를 추가합니다. 자세한 내용은 을 <block ref="946669e64e0e42585f18099dec81ec03" category="inline-link-macro-rx"></block> 참조하십시오.</block>
+  <block id="db9ce82f740ff3a9f2ad609cd7d296c9" category="list-text">ONTAP 도구 플러그인을 위한 vCenter 서버 API에서 로컬로 스토리지 백엔드를 온보딩합니다.</block>
+  <block id="c31397b4be5939d5bf72a8bb0faf9443" category="paragraph">Swagger는 다음 URL을 통해 액세스할 수 있습니다. "https://$FQDN_IP_PORT/,:<block ref="31b962e36589b3bd2081bfb7d028723f" category="inline-link-rx"></block>.</block>
+  <block id="6e086f74a5eaa2061811529e1d6a623e" category="paragraph">curl -X POST <block ref="c5820eec1fb061702ab2f34b24d1d295" category="inline-link-rx"></block> \ --header 'x-auth: &lt;인증 토큰&gt;' \ --header '콘텐츠 유형: application/json' \ --data '{ "otv_ip": "xx.xx.xx.xx", "vasa_provider_credentials": { "username": "xxxxx", "password": "******" }, "database_password": "******" }'</block>
+  <block id="684e740f5c7b2c5d6085a2342428c783" category="paragraph">{ "otv_ip": "xx.xx.xx.xx", "vasa_provider_credentials": { "username": "xxxxx", "password": "*******" } }</block>
+  <block id="fafb1a9cdf3a5eb6029da27aa9e99060" category="list-text">vCenter Server에 VMware vSphere 스토리지 공급자용 ONTAP 도구를 추가합니다. <block ref="c283b8bc021fee7e6c856fce39783a46" category="inline-link-macro-rx"></block> VMware vSphere용 ONTAP 도구 사용.</block>
+  <block id="abb218554e93c229e9093816b59ec169" category="list-text">VMware vSphere 9.xxx용 ONTAP 툴에서 마이그레이션된 NFS 및 VMFS 데이터 저장소는 데이터 저장소 검색 작업이 트리거된 후에만 VMware vSphere 10.3용 ONTAP 툴에 표시됩니다. 이 작업은 완료하는 데 최대 30분이 걸릴 수 있습니다. VMware vSphere 플러그인 사용자 인터페이스 페이지의 ONTAP 도구 개요 페이지에 데이터 저장소가 표시되는지 확인하세요.</block>
+  <block id="3ce8158207209ed6b060c0d6db6b685d" category="section-title">스토리지 복제 어댑터(SRA)를 업데이트하는 단계</block>
+  <block id="507fcd9c144d0cee8403de3b0608fc58" category="paragraph">복구 계획에서 보호 사이트는 VM이 현재 실행 중인 위치를 나타내고, 복구 사이트는 VM이 복구될 위치를 나타냅니다. SRM 인터페이스는 보호 사이트와 복구 사이트에 대한 세부 정보와 함께 복구 계획의 상태를 표시합니다. 복구 계획에서 CLEANUP(정리) 및 REPROTECT(재보호) 버튼은 비활성화되어 있지만, TEST(테스트) 및 RUN(실행) 버튼은 활성화되어 있습니다. 이는 사이트가 데이터 복구를 위해 준비되었음을 나타냅니다. SRA를 마이그레이션하기 전에 한 사이트는 보호 상태이고 다른 사이트는 복구 상태인지 확인하십시오.</block>
+  <block id="7c4cc8f57df0d72a910b2adf9c1dfc8a" category="list-text">VMware Live Site Recovery 구성 관리 페이지로 이동합니다</block>
+  <block id="3f6debbe365887c1e9cead81caac7ed5" category="list-text">줄임표 메뉴에서 * Reset configuration * 을 선택합니다.</block>
+  <block id="d416ef8edb2844634dbe8cfff2e77f9a" category="sidebar">igroups 및 내보내기 정책 이해</block>
+  <block id="019227f341a3522deb6e80d962611b44" category="sidebar">VMware vSphere 9.xx용 ONTAP 툴을 10.3으로 마이그레이션합니다</block>
+  <block id="d619f73b597358ef5140938f37254d97" category="sidebar">VMware vSphere용 최신 ONTAP 도구로 마이그레이션</block>
 </blocks>

@@ -6,6 +6,8 @@ entries:
   url: "/configure/dashboard-overview.html"
 - title: ONTAP 도구 관리자 사용자 인터페이스
   url: "/configure/manager-user-interface.html"
+- title: igroups 및 내보내기 정책 이해
+  url: "/manage/igroup-workflow.html"
 - title: VMware vSphere 서비스에 대해 ONTAP 툴을 사용하도록 설정합니다
   url: "/manage/enable-services.html"
 - title: VMware vSphere 구성에 대한 ONTAP 툴을 변경합니다
